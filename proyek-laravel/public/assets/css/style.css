@@ -15,6 +15,10 @@
         url('/assets/fonts/beaming.otf') format('opentype');
 }
 
+*{
+    font-family: 'Gilroy';
+}
+
 body{
     overflow-x: hidden;
 }
@@ -24,6 +28,38 @@ body{
     display: flex;
     justify-content: space-around;
     font-family: 'Gilroy', sans-serif;
+}
+
+/* Aturan CSS untuk navbar link */
+.navbar-nav .nav-link {
+    color: #000; /* Warna teks default */
+    text-decoration: none; /* Menghapus garis bawah default */
+}
+
+/* Aturan CSS untuk navbar link saat dihover */
+.navbar-nav .nav-link:hover {
+    color: #FF69B4; /* Warna teks saat dihover */
+}
+
+/* Aturan CSS untuk navbar link aktif */
+.navbar-nav .nav-link.active {
+    color: #FF69B4 !important; /* Warna teks saat aktif dan !important digunkn utk mencegah aturan lain selain ini*/
+}
+
+/* kotak hitam untuk kategori produk */
+.black-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Hitam dengan opacitas 50% */
+    z-index: 0; /* Menempatkan lapisan hitam di atas gambar */
+}
+
+
+.dropdown-menu{
+    background-color: #FFF0FD !important;
 }
 
 .tentang-kami{
@@ -63,4 +99,13 @@ body{
 .kontak-kami button{
     background-color: #FA2D93;
     color: white;
+}
+
+.kontak-kami button:hover{
+    background-color: #e01f80;
+    color: white;
+}
+
+.footer{
+    background-color: #FA2D93;
 }

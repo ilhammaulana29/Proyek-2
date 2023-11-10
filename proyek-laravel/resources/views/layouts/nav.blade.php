@@ -11,7 +11,7 @@
         </li>
         <li class="nav-item dropdown no-border">
           <a class="nav-link dropdown-toggle me-3" data-bs-toggle="dropdown" aria-expanded="false">Produk</a>
-          <ul class="dropdown-menu">
+          <ul class="dropdown-menu border-0">
             <li><a class="dropdown-item" href="#">Semua</a></li>
             <li><a class="dropdown-item" href="#">Perawatan Badan</a></li>
             <li><a class="dropdown-item" href="#">Perawatan Wajah</a></li>
@@ -26,15 +26,15 @@
           <a class="nav-link" href="#">Kontak Kami</a>
         </li>
       </ul>
-      <form class="" role="search">
-        <input class="form-control form-control-sm border-0" type="search" placeholder="Cari produk" aria-label="Search">
+      <form class="me-3" role="search">
+        <input class="form-control form-control-sm border-0 focus-ring focus-ring-danger py-1 px-2 text-decoration-none border rounded-2" type="search" placeholder="Cari produk" aria-label="Search">
       </form>
       <ul class="navbar-nav">
         <li class="nav-item">
-          <a class="nav-link " aria-current="page" href="#"><i class="bi bi-person-fill bi-2x"></i></a>
+          <a class="nav-link " aria-current="page" href="#"><i class="bi bi-person-fill fs-4"></i></a>
         </li>
         <li class="nav-item me-3">
-          <a class="nav-link" aria-current="page" href="#"><i class="bi bi-cart4"></i></a>
+          <a class="nav-link" aria-current="page" href="#"><i class="bi bi-cart4 fs-4"></i></a>
         </li>
       </ul>
     </div>
