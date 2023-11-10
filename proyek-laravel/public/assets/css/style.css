@@ -1,15 +1,66 @@
+/* Aturan CSS untuk font Gilroy */
+@font-face {
+    font-family: 'Gilroy';
+    src: 
+        url('/assets/fonts/gilroy-regular.ttf') format('truetype'),
+        url('/assets/fonts/Gilroy-SemiBold.ttf') format('truetype'),
+        url('/assets/fonts/gilroy-bold.ttf') format('truetype'),
+        url('/assets/fonts/gilroy-medium.ttf') format('truetype');
+}
+
+/* Aturan CSS untuk font Beaming */
+@font-face {
+    font-family: 'Beaming';
+    src: 
+        url('/assets/fonts/beaming.otf') format('opentype');
+}
+
+body{
+    overflow-x: hidden;
+}
 
 .navbar{
     background-color: #FFF0FD;
     display: flex;
     justify-content: space-around;
-    font-family: sans-serif;
+    font-family: 'Gilroy', sans-serif;
 }
 
-img{
-    /* width: 130px; */
+.tentang-kami{
+    background-color: #FFC8C6;
+    font-family: 'Gilroy';
 }
 
-.dropdown{
-    background-color: #FFF0FD;
+.slogan{
+    transform: rotate(-8deg);
+    margin-bottom: 4rem;
+}
+
+.shadow{
+    background: linear-gradient(to bottom, #fff, #52C3C6)
+}
+
+.slogan p:first-child{
+    font-size: 3rem;
+    font-family: 'Beaming';
+    color: #FA2D93;
+}
+.slogan p:nth-child(2){
+    font-size: 1.5rem;
+    font-family: 'Beaming';
+    margin-left: 4rem;
+    color: white;
+}
+
+.kontak-kami{
+    background-color: #FA2D93;
+}
+
+.kontak-kami h1{
+    color: #FF77E9;
+}
+
+.kontak-kami button{
+    background-color: #FA2D93;
+    color: white;
 }
