@@ -75,36 +75,28 @@ body{
     background-color: #ffdee3;
 }
 
-.foto-profil img{
-    margin-top: -8rem;
+.alur-pesanan{
+    margin-bottom: 15rem;
 }
 
-.identitas p:first-child{
-    color: #FF69B4;
+.alur-pesanan a{
+    border: 1.8px solid #FA2D93;
+    color: #FA2D93;
 }
 
-/* css agar kolom sebelah kiri fixed dan kanan scrol */
-.kolom-kiri{
-    /* position: fixed; */
-    overflow-y: auto;
-    min-height: 100vh;
+.alur-pesanan a:hover{
+    background-color: #FA2D93;
+    color: #fff;
 }
 
-
-.kata-sandi{
-    background-color: #ffdee3;
+.isi-pesanan a{
+    background-color: #FA2D93;
+    color: #fff;
 }
 
-.btn-batal{
-    color: #FFA3B2 !important;
-    background-color: #fff !important;
+.status-pesanan p:last-child{
+    color: #FA2D93;
 }
-
-.btn-simpan{
-    color: #FFA3B2 !important;
-    background-color: #fdcbd2 !important;
-}
-
 
 .kontak-kami{
     background-color: #FA2D93;

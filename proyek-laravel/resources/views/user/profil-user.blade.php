@@ -32,7 +32,7 @@
                         </div>
                     </div>
                 </div>
-                <form action="" method="" class="mt-5 shadow-sm p-3 ps-4 rounded mb-5">
+                <form action="" method="" class="profil mt-5 shadow-sm p-3 ps-4 rounded mb-5">
                     <p class="fs-3 fw-bold">EDIT PROFIL</p>
                     <div class="row mb-3">
                         <p class="fw-semibold">Jenis Kelamin</p>

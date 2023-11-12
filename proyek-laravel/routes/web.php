@@ -28,3 +28,7 @@ Route::get('/deskripsi', function(){
 Route::get('/profil', function(){
     return view('user.profil-user');
 });
+
+Route::get('/pesanan', function(){
+    return view('user.pesanan-user');
+});
