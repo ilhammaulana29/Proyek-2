@@ -1,0 +1,47 @@
+/* Aturan CSS untuk font Gilroy */
+@font-face {
+    font-family: 'Gilroy';
+    src: 
+        url('/assets/fonts/gilroy-regular.ttf') format('truetype'),
+        url('/assets/fonts/Gilroy-SemiBold.ttf') format('truetype'),
+        url('/assets/fonts/gilroy-bold.ttf') format('truetype'),
+        url('/assets/fonts/gilroy-medium.ttf') format('truetype');
+}
+
+/* Aturan CSS untuk font Beaming */
+@font-face {
+    font-family: 'Beaming';
+    src: 
+        url('/assets/fonts/beaming.otf') format('opentype');
+}
+
+*{
+    font-family: 'Gilroy';
+}
+
+body{
+    overflow-x: hidden;
+}
+
+.navbar{
+    background-color: #FFF0FD;
+    display: flex;
+    justify-content: space-around;
+    font-family: 'Gilroy', sans-serif;
+}
+
+/* Aturan CSS untuk navbar link */
+.navbar-nav .nav-link {
+    color: #000; /* Warna teks default */
+    text-decoration: none; /* Menghapus garis bawah default */
+}
+
+/* Aturan CSS untuk navbar link saat dihover */
+.navbar-nav .nav-link:hover {
+    color: #FF69B4; /* Warna teks saat dihover */
+}
+
+/* Aturan CSS untuk navbar link aktif */
+.navbar-nav .nav-link.active {
+    color: #FF69B4 !important; /* Warna teks saat aktif dan !important digunkn utk mencegah aturan lain selain ini*/
+}

@@ -20,3 +20,11 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function(){
     return view('user.index');
 });
+
+Route::get('/deskripsi', function(){
+    return view('user.deskripsi-produk');
+});
+
+Route::get('/profil', function(){
+    return view('user.profil-user');
+});
