@@ -46,6 +46,10 @@ body{
     color: #FF69B4 !important; /* Warna teks saat aktif dan !important digunkn utk mencegah aturan lain selain ini*/
 }
 
+nav i{
+    color: #FF69B4;
+}
+
 /* kotak hitam untuk kategori produk */
 .black-overlay {
     position: absolute;

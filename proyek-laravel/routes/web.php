@@ -32,3 +32,7 @@ Route::get('/profil', function(){
 Route::get('/pesanan', function(){
     return view('user.pesanan-user');
 });
+
+Route::get('/alamat', function(){
+    return view('user.alamat-user');
+});
