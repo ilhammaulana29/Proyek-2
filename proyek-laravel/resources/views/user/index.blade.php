@@ -26,7 +26,7 @@
 
     <div class="container">
         @include('components.kategori')
-        @include('components.produk')
     </div>
+    @include('components.produk')
     @include('components.tentang-kami')
 @endsection

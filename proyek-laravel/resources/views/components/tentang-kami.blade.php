@@ -1,4 +1,4 @@
-<div class="tentang-kami">
+<div class="tentang-kami" id="tentang-kami">
     <div class="row text-justify">
         <div class="slogan text-start ms-4">
             <p>Perfect Yourself</p>

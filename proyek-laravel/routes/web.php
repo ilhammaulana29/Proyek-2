@@ -36,3 +36,11 @@ Route::get('/pesanan', function(){
 Route::get('/alamat', function(){
     return view('user.alamat-user');
 });
+
+Route::get('/wishlist', function(){
+    return view('user.wishlist');
+});
+
+Route::get('/checkout', function(){
+    return view('user.checkout-produk');
+});

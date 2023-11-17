@@ -66,6 +66,12 @@ nav i{
     background-color: #FFF0FD !important;
 }
 
+.dropdown-item.active,
+.dropdown-item:focus {
+  background-color: pink !important; /* Warna latar belakang ketika diklik */
+  color: #fff; /* Warna teks ketika diklik */
+}
+
 .tentang-kami{
     background-color: #FFC8C6;
     font-family: 'Gilroy';
