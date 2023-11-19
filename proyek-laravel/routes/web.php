@@ -44,3 +44,24 @@ Route::get('/wishlist', function(){
 Route::get('/checkout', function(){
     return view('user.checkout-produk');
 });
+
+Route::get('/produk-kategori', function(){
+    return view('user.produk-kategori');
+});
+
+// Route Admin
+Route::get('/dashboard-admin', function(){
+    return view('admin.index');
+});
+
+Route::get('/pesanan-admin', function(){
+    return view('admin.pesanan-admin');
+});
+
+Route::get('/produk-admin', function(){
+    return view('admin.produk-admin');
+});
+
+Route::get('/seting-admin', function(){
+    return view('admin.seting-admin');
+});

@@ -1,0 +1,28 @@
+/* Aturan CSS untuk font Gilroy */
+@font-face {
+    font-family: 'Gilroy';
+    src: 
+        url('/assets/fonts/gilroy-regular.ttf') format('truetype'),
+        url('/assets/fonts/Gilroy-SemiBold.ttf') format('truetype'),
+        url('/assets/fonts/gilroy-bold.ttf') format('truetype'),
+        url('/assets/fonts/gilroy-medium.ttf') format('truetype');
+}
+
+/* Aturan CSS untuk font Beaming */
+@font-face {
+    font-family: 'Beaming';
+    src: 
+        url('/assets/fonts/beaming.otf') format('opentype');
+}
+
+*{
+    font-family: 'Gilroy';
+}
+
+.card.kolom-kiri{
+    background-color: #FA2D93;
+}
+
+.active{
+    font-weight: bold;
+}
