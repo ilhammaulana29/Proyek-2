@@ -7,10 +7,10 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-auto"> <!-- Menambahkan kelas ms-auto -->
         <li class="nav-item">
-          <a class="nav-link active me-3" aria-current="page" href="/">Home</a>
+          <a class="nav-link me-3 {{ request()->is('home*','/') ? 'active' : ''   }}" aria-current="page" href="/">Home</a>
         </li>
         <li class="nav-item dropdown no-border">
-          <a class="nav-link dropdown-toggle me-3" data-bs-toggle="dropdown" aria-expanded="false">Produk</a>
+          <a class="nav-link dropdown-toggle me-3 {{ request()->is('produk-kategori*') ? 'active' : ''   }}" data-bs-toggle="dropdown" aria-expanded="false">Produk</a>
           <ul class="dropdown-menu border-0">
             <li><a class="dropdown-item" href="#">Semua</a></li>
             <li><a class="dropdown-item" href="#">Perawatan Badan</a></li>

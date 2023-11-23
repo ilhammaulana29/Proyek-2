@@ -62,6 +62,10 @@ Route::get('/produk-admin', function(){
     return view('admin.produk-admin');
 });
 
-Route::get('/seting-admin', function(){
-    return view('admin.seting-admin');
+Route::get('/seting-profil-admin', function(){
+    return view('admin.seting-profil-admin');
+});
+
+Route::get('/seting-toko-admin', function(){
+    return view('admin.seting-toko-admin');
 });

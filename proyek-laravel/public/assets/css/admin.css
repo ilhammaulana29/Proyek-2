@@ -21,8 +21,33 @@
 
 .card.kolom-kiri{
     background-color: #FA2D93;
+    overflow-y: auto;
+}
+
+.kolom-kanan{
+    overflow-y: auto;
 }
 
 .active{
     font-weight: bold;
+}
+
+/* Css edit profil seting admin */
+.kata-sandi{
+    background-color: #ffdee3;
+}
+
+.btn-batal{
+    color: #FFA3B2 !important;
+    background-color: #fff !important;
+}
+
+.btn-simpan{
+    color: #FFA3B2 !important;
+    background-color: #fdcbd2 !important;
+}
+
+a.profile.active,
+a.toko.active{
+    color: #FA2D93 !important;
 }

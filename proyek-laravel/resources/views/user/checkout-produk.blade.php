@@ -52,9 +52,11 @@
     </div>
     <div class="mt-4 shadow-sm ps-4 pt-1 pe-4 pb-4 ms-1 me-1 rounded">
         <p class="fs-4">Metode Pembayaran</p>
-        <a class="btn" href="#" role="button">COD</a>
         <a class="btn" href="#" role="button">Dana</a>
-        <a class="btn" href="#" role="button">Bank</a>
+        <a class="btn" href="#" role="button">BRI</a>
+        <a class="btn" href="#" role="button">Mandiri</a>
+        <a class="btn" href="#" role="button">BCA</a>
+        <a class="btn" href="#" role="button">BNI</a>
     </div>
     <div class="card border-0 shadow-sm mt-4 ms-auto" style="width: 30rem;">
         <div class="card-body d-flex justify-content-between">
@@ -74,7 +76,7 @@
             <p class="fs-4" style="color: #FF77E9;">Total</p>
             <p class="fw-semibold">Rp90.000</p>
         </div>
-        <button type="button" class="btn me-3 ms-3 mb-3" style="background-color: #FF77E9; color: #fff;">Primary</button>
+        <button type="button" class="btn me-3 ms-3 mb-3" style="background-color: #FF77E9; color: #fff;">Bayar Sekarang</button>
     </div>
 </div>
 @endsection
