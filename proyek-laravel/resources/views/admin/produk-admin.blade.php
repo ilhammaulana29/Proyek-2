@@ -18,10 +18,10 @@
                             <a class="nav-link active" aria-current="page" href="#">Produk Aktif</a>
                           </li>
                           <li class="nav-item">
-                            <a class="nav-link" href="#">Produk Nonakitf</a>
+                            <a class="nav-link ms-5" href="#">Produk Nonakitf</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Produk Habis</a>
+                            <a class="nav-link ms-5" href="#">Produk Habis</a>
                           </li>
                         </ul>
                         <div class="d-flex">
@@ -47,8 +47,8 @@
                         <th scope="col">Harga</th>
                         <th scope="col">Stok</th>
                         <th scopr="col">
-                            <a href="" class="" class="text-decoration-none color-black">
-                                <i class="bi bi-plus-circle"></i>Tambah Produk
+                            <a href="#" class="btn btn-success text-decoration-none color-black">
+                                <i class="bi bi-plus-circle"></i> Tambah Produk
                             </a>
                         </th>
                     </tr>
@@ -60,7 +60,7 @@
                         </th>
                         <td>
                             <p style="overflow: hidden; display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 4;">
-                                Feeling So Good
+                                Sabun Cuci Piring
                             </p>
                         </td>
                         <td>
@@ -77,12 +77,12 @@
                         </td>
                       </tr>
                       <tr>
-                        <th scope="row" class="border">
+                        <th scope="row">
                             <img src="assets/images/produk1.png" alt="" style="max-width: 120px; max-height: 120px; object-fit: cover; object-position: center; aspect-ration: 1/1;">
                         </th>
                         <td>
                             <p style="overflow: hidden; display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 4;">
-                                Feeling So Good
+                                Sabun Batangan
                             </p>
                         </td>
                         <td>
@@ -91,7 +91,7 @@
                             </p>
                         </td>
                         <td>
-                            124
+                            12
                         </td>
                         <td>
                             <a href="" class="btn btn-primary">Edit</a>

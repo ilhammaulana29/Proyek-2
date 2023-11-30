@@ -45,12 +45,12 @@
                     <div class="detail-pesanan d-flex lh-1">
                         <img src="assets/images/produk1.png" alt="" style="width: rem; height:10rem;">
                         <div class="nama-produk harga">
-                            <p class="fw-medium">Felling So Good</p>
+                            <p class="fw-medium">Sabun Colet</p>
                             <p class="fw-medium">1</p>
                             <p class="fw-medium">Rp 75.000</p>
                         </div>
                     </div>
-                    <p class="fw-medium fs-4 text-end">Total Rp 75.000</p>
+                    <p class="fw-medium fs-5 text-end">Total Rp 75.000</p>
                 </div>
                   <div class="isi-pesanan-ada mt-3 shadow-sm p-3 rounded">
                     <div class="status-pesanan d-flex justify-content-between">
@@ -61,16 +61,17 @@
                     <div class="detail-pesanan d-flex lh-1">
                         <img src="assets/images/produk1.png" alt="" style="width: rem; height:10rem;">
                         <div class="nama-produk harga">
-                            <p class="fw-medium">Felling So Good</p>
-                            <p class="fw-medium">1</p>
+                            <p class="fw-medium">Rinso</p>
+                            <p class="fw-medium">2</p>
                             <p class="fw-medium">Rp 75.000</p>
                         </div>
                     </div>
                     <div class="btns mt-3 text-end">
-                        <button type="button" class="btn">Tolak</button>
-                        <button type="button" class="btn">Terima</button>
+                        <a href="" class="btn btn-primary">Terima</a>
+                        <a href="" class="btn btn-danger">Tolak</a>
                     </div>
-                    <p class="fw-medium fs-4 text-end">Total Rp 75.000</p>
+                  </div>
+                    <p class="fw-medium fs-5 text-end">Total Rp 75.000</p>
                 </div>
 
             </div>
