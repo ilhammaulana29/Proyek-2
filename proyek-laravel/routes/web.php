@@ -69,3 +69,11 @@ Route::get('/seting-profil-admin', function(){
 Route::get('/seting-toko-admin', function(){
     return view('admin.seting-toko-admin');
 });
+Route::get('/login-user', function(){
+    return view('login.login');
+});
+Route::get('/register-user', function(){
+    return view('login.registrasi');
+});
+
+
