@@ -16,8 +16,7 @@
         <div class="card login-form">           
             <div class="card-body">
                 <h3 style="font-weight: bold;">Masuk</h3>
-
-            <form>
+            <form action="" method="POST">
                 <div class="mb-4">
                 <label for="exampleInputEmail1" class="form-label">Alamat Email</label>
                 <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" style="background: rgba(235, 239, 184, 0.756)" placeholder="Email">
@@ -47,17 +46,14 @@
                         <span>atau masuk dengan</span>
                     </div>
                     <div class="d-grid mt-5 mb-5">
-                        <button type="submit" class="btn btn-light btn-gmail">
+                        <button class="btn btn-light btn-gmail">
                         <img src="assets/images/google2.png" alt="Gmail" class="img-google me-2" style="max-width: 20px; max-height: 20px;"> Masuk dengan akun Google </button>
                     </div>                                    
                     <div style="text-align: center;">
                         <span style="font-weight: bold;">Belum punya akun?</span>
                     </div>
                     <div class="d-grid mt-5">
-                        <button type="submit" class="btn btn-success btn-login custom-button" style="background: rgba(235, 239, 184, 0.756)">Daftar di sini</button>
-                    </div>
-                    <div class="d-grid mt-2">
-                        <button type="submit" class="btn btn-success btn-login custom-button" style="background: rgba(235, 239, 184, 0.756)">Verifikasi ulang di sini</button>
+                        <a href="/register-user" class="btn btn-success btn-login custom-button" style="background: rgba(235, 239, 184, 0.756)">Daftar di sini</a>
                     </div>
             </form>
             </div>

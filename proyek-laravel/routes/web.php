@@ -75,5 +75,11 @@ Route::get('/login-user', function(){
 Route::get('/register-user', function(){
     return view('login.registrasi');
 });
+Route::get('/tambah-produk', function(){
+    return view('admin.tambah-produk');
+});
+Route::get('/ubah-produk', function(){
+    return view('admin.edit-produk');
+});
 
 

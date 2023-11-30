@@ -17,9 +17,6 @@
                           <li class="nav-item">
                             <a class="nav-link active" aria-current="page" href="#">Produk Aktif</a>
                           </li>
-                          <li class="nav-item">
-                            <a class="nav-link ms-5" href="#">Produk Nonakitf</a>
-                        </li>
                         <li class="nav-item">
                             <a class="nav-link ms-5" href="#">Produk Habis</a>
                           </li>
@@ -47,7 +44,7 @@
                         <th scope="col">Harga</th>
                         <th scope="col">Stok</th>
                         <th scopr="col">
-                            <a href="#" class="btn btn-success text-decoration-none color-black">
+                            <a href="/tambah-produk" class="btn btn-success text-decoration-none color-black">
                                 <i class="bi bi-plus-circle"></i> Tambah Produk
                             </a>
                         </th>

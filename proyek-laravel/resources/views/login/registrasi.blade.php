@@ -8,7 +8,7 @@
     <title>Form Register</title>
 </head>
 <body>
-    <div class="container">
+    <div class="container shadow-sm p-3 mb-3 rounded">
         <form>
             <h3 style="font-weight: bold;">Daftar</h3>
             <div class="mb-3">
@@ -20,16 +20,16 @@
                 <input type="email" class="form-control" id="exampleInputEmail" placeholder="Alamat Email">
             </div>
             <div class="mb-3">
+                <label for="exampleInputNomor" class="nomor handphone">Nomor Handphone<span style="color: red;">*</span></label>
+                <input type="text" class="form-control" id="exampleInputNomor" placeholder="089xxxxxxxxx">
+            </div>
+            <div class="mb-3">
                 <label for="exampleInputSandi" class="sandi">Kata Sandi<span style="color: red;">*</span></label>
                 <input type="password" class="form-control" id="exampleInputSandi" placeholder="Kata Sandi">
             </div>
             <div class="mb-3">
                 <label for="exampleInputUlangiSandi" class="ulang sandi">Ulangi Kata Sandi<span style="color: red;">*</span></label>
                 <input type="password" class="form-control" id="exampleInputUlangiSandi" placeholder="Ulangi Kata Sandi">
-            </div>
-            <div class="mb-3">
-                <label for="exampleInputNomor" class="nomor handphone">Nomor Handphone<span style="color: red;">*</span></label>
-                <input type="text" class="form-control" id="exampleInputNomor">
             </div>
             <div class="d-grid mt-5">
                 <button type="submit" class="btn btn-success btn-login custom-button" style="background:rgba(230, 83, 176, 0.756)">Daftar</button>
@@ -38,11 +38,11 @@
                 <span style="font-weight: bold;">Sudah punya akun?</span>
             </div>
             <div class="d-grid mt-5">
-                <button type="submit" class="btn btn-success btn-login custom-button" style="background: rgba(230, 83, 176, 0.756)">Daftar di sini</button>
+                <a href="/login-user" class="btn btn-success btn-login custom-button" style="background: rgba(230, 83, 176, 0.756)">Masuk di sini</a>
             </div>
-            <div class="d-grid mt-5">
-                <button type="submit" class="btn btn-success btn-login custom-button" style="background: rgba(230, 83, 176, 0.756)">Verifikasi ulang di sini</button>
-            </div>
+            {{-- <div class="d-grid mt-5">
+                <button type="submit" class="btn btn-success btn-login custom-button" style="background: rgba(230, 83, 176, 0.756)">Verifikasi ulang email</button>
+            </div> --}}
         </form>
     </div>
 
