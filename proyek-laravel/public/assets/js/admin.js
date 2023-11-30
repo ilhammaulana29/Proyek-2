@@ -1,7 +1,7 @@
 // script untuk file seting toko
-function triggerFileInput() {
+function triggerFileInput(inputId) {
     // Memicu klik pada input file ketika tombol diklik
-    document.getElementById('fileInput').click();
+    document.getElementById(inputId).click();
 }
 
 // function showProfil(event) {

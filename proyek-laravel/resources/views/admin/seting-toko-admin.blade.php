@@ -12,29 +12,37 @@
                 <div class="d-flex mb-5">
                     <p>Logo Toko</p>
                     <!-- Tombol untuk memicu input file -->
-                    <button type="button" class="border-0 rounded" onclick="triggerFileInput()" style="width: 8rem; height: 8rem; margin-left: 11rem;">Cari Logo</button>
+                    <button type="button" class="border-0 rounded" onclick="triggerFileInput('fileInputLogo')" style="width: 8rem; height: 8rem; margin-left: 11rem;">Logo</button>
                     <!-- Input file yang disembunyikan -->
-                    <input type="file" id="fileInput" name="fileInput" style="display: none;">
+                    <input type="file" id="fileInputLogo" name="fileInputLogo" style="display: none;">
                 </div>
 
                 <div class="d-flex mb-5">
                     <p>Banner Iklan</p>
                     <!-- Tombol untuk memicu input file -->
-                    <button type="button" class="border-0 rounded" onclick="triggerFileInput()" style="width: 8rem; height: 8rem; margin-left: 10rem;">Banner 1</button>
+                    <button type="button" class="border-0 rounded" onclick="triggerFileInput('fileInput1')" style="width: 8rem; height: 8rem; margin-left: 10rem;">Banner 1</button>
                     <!-- Input file yang disembunyikan -->
-                    <input type="file" id="fileInput" name="fileInput" style="display: none;">
+                    <input type="file" id="fileInput1" name="fileInput1" style="display: none;">
                     <!-- Tombol untuk memicu input file -->
-                    <button type="button" class="border-0 rounded ms-2" onclick="triggerFileInput()" style="width: 8rem; height: 8rem;">Banner 2</button>
+                    <button type="button" class="border-0 rounded ms-2" onclick="triggerFileInput('fileInput2')" style="width: 8rem; height: 8rem;">Banner 2</button>
                     <!-- Input file yang disembunyikan -->
-                    <input type="file" id="fileInput" name="fileInput" style="display: none;">
+                    <input type="file" id="fileInput2" name="fileInput2" style="display: none;">
                     <!-- Tombol untuk memicu input file -->
-                    <button type="button" class="border-0 rounded ms-2" onclick="triggerFileInput()" style="width: 8rem; height: 8rem;">Banner 3</button>
+                    <button type="button" class="border-0 rounded ms-2" onclick="triggerFileInput('fileInput3')" style="width: 8rem; height: 8rem;">Banner 3</button>
                     <!-- Input file yang disembunyikan -->
-                    <input type="file" id="fileInput" name="fileInput" style="display: none;">
+                    <input type="file" id="fileInput3" name="fileInput3" style="display: none;">
                 </div>
 
                 <div class="d-flex mb-5">
-                    <p>Banner Iklan</p>
+                    <p>Foto BA</p>
+                    <!-- Tombol untuk memicu input file -->
+                    <button type="button" class="border-0 rounded" onclick="triggerFileInput('fileInputBA')" style="width: 8rem; height: 8rem; margin-left: 12rem;">Foto BA</button>
+                    <!-- Input file yang disembunyikan -->
+                    <input type="file" id="fileInputBA" name="fileInputbaBA" style="display: none;">
+                </div>
+
+                <div class="d-flex mb-5">
+                    <p>Tentang Kami</p>
                     <textarea name="" id="" cols="100" rows="10" style="margin-left: 10rem;"></textarea>
                 </div>
                 <div class="d-flex">

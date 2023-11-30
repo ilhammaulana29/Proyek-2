@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\tokoController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -81,5 +82,7 @@ Route::get('/tambah-produk', function(){
 Route::get('/ubah-produk', function(){
     return view('admin.edit-produk');
 });
+
+Route::post('/toko/update/{id}', [tokoController::class,'update']);
 
 
