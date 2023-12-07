@@ -1,6 +1,7 @@
-<nav class="navbar navbar-expand-lg nav-underline">
+<nav class="navbar navbar-example2 navbar-expand-lg nav-underline">
+  @foreach($dataToko as $item)
   <div class="container-fluid">
-    <a class="navbar-brand ms-3" href="/"><img src="{{asset('assets/images/Logo.png')}}" alt="Logo"></a>
+    <a class="navbar-brand ms-3" href="/"><img src="{{asset('assets/images/'.$item->logo_toko)}}" alt="Logo"></a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
@@ -34,9 +35,10 @@
           <a class="nav-link " aria-current="page" href="#"><i class="bi bi-person-fill fs-4"></i></a>
         </li>
         <li class="nav-item me-3">
-          <a class="nav-link" aria-current="page" href="#"><i class="bi bi-cart4 fs-4"></i></a>
+          <a class="nav-link" data-bs-toggle="offcanvas" data-bs-target="#offcanvasWithBothOptions" aria-controls="offcanvasWithBothOptions" aria-current="page" href="#"><i class="bi bi-cart4 fs-4"></i></a>
         </li>
       </ul>
     </div>
   </div>
+  @endforeach
 </nav>

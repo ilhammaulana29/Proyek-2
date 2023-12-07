@@ -1,75 +1,17 @@
 <div class="kumpulan-produk grid mt-5 mb-2 ms-3 me-3">
   <h3 class="text-center">Produk Terlaris</h3>
   <div class="row mb-4">
+    @foreach($dataProduk as $item)
     <div class="col-2 mb-4">
       <div class="card">
-        <img src="assets/images/produk1.png" class="card-img-top" alt="...">
+        <img src="{{ asset('assets/imgProduks/'.$item->gambar_produk) }}" class="card-img-top" alt="...">
         <div class="card-body">
-          <h5 class="card-title fw-semibold">Card title</h5>
-          <a href="" class="text-decoration-none"><p class="card-text text-dark">Deskripsi Produks</p></a>
-          <a href="" class="text-decoration-none"><p class="card-text text-dark fs-5 fw-semibold">80.000</p></a>
+          <p class="card-title fw-semibold">{{ $item->nama_produk }}</p>
+          <a href="{{ route('produk.show', ['id' => $item->id_produk]) }}" class="text-decoration-none"><p class="card-text text-dark text-truncate" style="font-size:smaller;">{{ $item->deskripsi_produk }}</p></a>
+          <a href="{{ route('produk.show', ['id' => $item->id_produk]) }}" class="text-decoration-none"><p class="card-text text-dark fs-5 fw-semibold">{{ $item->harga_produk }}</p></a>
         </div>
       </div>
     </div>
-    <div class="col-2">
-      <div class="card">
-        <img src="assets/images/produk1.png" class="card-img-top" alt="...">
-        <div class="card-body">
-          <h5 class="card-title">Card title</h5>
-          <a href="" class="text-decoration-none"><p class="card-text text-dark">Deskripsi Produks</p></a>
-          <a href="" class="text-decoration-none"><p class="card-text text-dark">80.000</p></a>
-        </div>
-      </div>
-    </div>
-    <div class="col-2">
-      <div class="card">
-        <img src="assets/images/produk1.png" class="card-img-top" alt="...">
-        <div class="card-body">
-          <h5 class="card-title">Card title</h5>
-          <a href="" class="text-decoration-none"><p class="card-text text-dark">Deskripsi Produks</p></a>
-          <a href="" class="text-decoration-none"><p class="card-text text-dark">80.000</p></a>
-        </div>
-      </div>
-    </div>
-    <div class="col-2">
-      <div class="card">
-        <img src="assets/images/produk1.png" class="card-img-top" alt="...">
-        <div class="card-body">
-          <h5 class="card-title">Card title</h5>
-          <a href="" class="text-decoration-none"><p class="card-text text-dark">Deskripsi Produks</p></a>
-          <a href="" class="text-decoration-none"><p class="card-text text-dark">80.000</p></a>
-        </div>
-      </div>
-    </div>
-    <div class="col-2">
-      <div class="card">
-        <img src="assets/images/produk1.png" class="card-img-top" alt="...">
-        <div class="card-body">
-          <h5 class="card-title">Card title</h5>
-          <a href="" class="text-decoration-none"><p class="card-text text-dark">Deskripsi Produks</p></a>
-          <a href="" class="text-decoration-none"><p class="card-text text-dark">80.000</p></a>
-        </div>
-      </div>
-    </div>
-    <div class="col-2">
-      <div class="card">
-        <img src="assets/images/produk1.png" class="card-img-top" alt="...">
-        <div class="card-body">
-          <h5 class="card-title">Card title</h5>
-          <a href="" class="text-decoration-none"><p class="card-text text-dark">Deskripsi Produks</p></a>
-          <a href="" class="text-decoration-none"><p class="card-text text-dark">80.000</p></a>
-        </div>
-      </div>
-    </div>
-    <div class="col-2">
-      <div class="card">
-        <img src="assets/images/produk1.png" class="card-img-top" alt="...">
-        <div class="card-body">
-          <h5 class="card-title">Card title</h5>
-          <a href="" class="text-decoration-none"><p class="card-text text-dark">Deskripsi Produks</p></a>
-          <a href="" class="text-decoration-none"><p class="card-text text-dark">80.000</p></a>
-        </div>
-      </div>
-    </div>
+    @endforeach
   </div>
 </div>

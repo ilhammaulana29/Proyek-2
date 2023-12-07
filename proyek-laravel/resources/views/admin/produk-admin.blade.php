@@ -40,67 +40,36 @@
                     <thead>
                       <tr>
                         <th scope="col">Gambar</th>
-                        <th scope="col">Info Produk</th>
+                        <th scope="col">Nama Produk</th>
+                        <th scope="col">Kategori</th>
                         <th scope="col">Harga</th>
                         <th scope="col">Stok</th>
                         <th scopr="col">
-                            <a href="/tambah-produk" class="btn btn-success text-decoration-none color-black">
+                            <a href="/produk-admin/create" class="btn btn-success text-decoration-none color-black">
                                 <i class="bi bi-plus-circle"></i> Tambah Produk
                             </a>
                         </th>
                     </tr>
                     </thead>
                     <tbody>
+                    @foreach($dataProduk as $item)
                       <tr>
                         <th scope="row">
-                            <img src="assets/images/produk1.png" alt="" style="max-width: 120px; max-height: 120px; object-fit: cover; object-position: center; aspect-ration: 1/1;">
+                            <img src="{{ asset('assets/imgProduks/'.$item->gambar_produk) }}" alt="" style="max-width: 100px; max-height: 100px; object-fit: cover; object-position: center;">
                         </th>
+                        <td>{{ $item->nama_produk }}</td>
+                        <td>{{ $item->nama_kategori }}</td>
+                        <td>{{ $item->harga_produk }}</td>
+                        <td>{{ $item->stok_produk }}</td>
                         <td>
-                            <p style="overflow: hidden; display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 4;">
-                                Sabun Cuci Piring
-                            </p>
-                        </td>
-                        <td>
-                            <p style="overflow: hidden; display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 1;">
-                                Rp. 75.000
-                            </p>
-                        </td>
-                        <td>
-                            12
-                        </td>
-                        <td>
-                            <a href="" class="btn btn-primary">Edit</a>
-                            <a href="" class="btn btn-danger">Delete</a>
+                            <a href="/produk-admin/edit/{{ $item->id_produk }}" class="btn btn-primary">Edit</a>
+                            <a href="/produk-admin/destroy/{{ $item->id_produk }}" class="btn btn-danger">Delete</a>
                         </td>
                       </tr>
-                      <tr>
-                        <th scope="row">
-                            <img src="assets/images/produk1.png" alt="" style="max-width: 120px; max-height: 120px; object-fit: cover; object-position: center; aspect-ration: 1/1;">
-                        </th>
-                        <td>
-                            <p style="overflow: hidden; display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 4;">
-                                Sabun Batangan
-                            </p>
-                        </td>
-                        <td>
-                            <p style="overflow: hidden; display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 1;">
-                                Rp. 75.000
-                            </p>
-                        </td>
-                        <td>
-                            12
-                        </td>
-                        <td>
-                            <a href="" class="btn btn-primary">Edit</a>
-                            <a href="" class="btn btn-danger">Delete</a>
-                        </td>
-                      </tr>
+                      @endforeach
                     </tbody>
                   </table>
             </div>
         </div>
     </div>
 @endsection
-            </div>
-        </div>
-    </div>

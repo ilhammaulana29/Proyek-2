@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\produkController;
+use App\Http\Controllers\ProdukControllerUser;
 use App\Http\Controllers\tokoController;
 use Illuminate\Support\Facades\Route;
 
@@ -18,13 +20,10 @@ use Illuminate\Support\Facades\Route;
 //     return view('welcome');
 // });
 
-Route::get('/', function(){
-    return view('user.index');
-});
+Route::get('/', [ProdukControllerUser::class,'index']);
+Route::get('/home', [ProdukControllerUser::class,'index']);
 
-Route::get('/deskripsi', function(){
-    return view('user.deskripsi-produk');
-});
+Route::get('/produk/{id}', [ProdukControllerUser::class, 'show'])->name('produk.show');
 
 Route::get('/profil', function(){
     return view('user.profil-user');
@@ -59,10 +58,6 @@ Route::get('/pesanan-admin', function(){
     return view('admin.pesanan-admin');
 });
 
-Route::get('/produk-admin', function(){
-    return view('admin.produk-admin');
-});
-
 Route::get('/seting-profil-admin', function(){
     return view('admin.seting-profil-admin');
 });
@@ -76,13 +71,16 @@ Route::get('/login-user', function(){
 Route::get('/register-user', function(){
     return view('login.registrasi');
 });
-Route::get('/tambah-produk', function(){
-    return view('admin.tambah-produk');
-});
-Route::get('/ubah-produk', function(){
-    return view('admin.edit-produk');
-});
 
-Route::post('/toko/update/{id}', [tokoController::class,'update']);
+Route::get('/produk-admin',[produkController::class,'index']);
+Route::get('/produk-admin/create',[produkController::class,'create']);
+Route::post('/produk-admin/store',[produkController::class,'store']);
+Route::get('/produk-admin/edit/{id}',[produkController::class,'edit']);
+Route::post('/produk-admin/update/{id}',[produkController::class,'update']);
+Route::get('/produk-admin/destroy/{id}',[produkController::class,'destroy']);
+
+// Route::post('/toko/update/{id}', [tokoController::class,'update']);
+Route::get('seting-toko-admin',[tokoController::class,'index']);
+Route::post('seting-toko-admin/update',[tokoController::class,'update']);
 
 

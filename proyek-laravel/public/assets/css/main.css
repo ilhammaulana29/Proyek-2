@@ -119,3 +119,13 @@ nav i{
 .footer{
     background-color: #FA2D93;
 }
+
+.btn-batal{
+    color: #FFA3B2 !important;
+    background-color: #fff !important;
+}
+
+.btn-simpan{
+    color: #FFA3B2 !important;
+    background-color: #fdcbd2 !important;
+}
