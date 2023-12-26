@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\order;
 use App\Models\toko;
 
 class tokoController extends Controller
@@ -12,10 +13,11 @@ class tokoController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function __construct()
     {
         $dataToko = toko::all();
-        return view('admin.seting-toko-admin', compact('dataToko'));
+        $dataOrderBaru = order::whereIn('status', ['Sudah bayar', 'Belum bayar'])->get();
+        view()->share(compact('dataToko', 'dataOrderBaru'));
     }
 
     /**
@@ -23,9 +25,9 @@ class tokoController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function index()
     {
-        //
+        return view('admin.seting-toko-admin');
     }
 
     /**
@@ -103,7 +105,7 @@ class tokoController extends Controller
             'tentang_toko'=> $request->tentang_toko,
         ]);
 
-        return redirect('/seting-toko-admin');
+        return redirect()->back();
 
     }
 

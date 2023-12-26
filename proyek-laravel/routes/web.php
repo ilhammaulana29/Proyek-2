@@ -1,8 +1,13 @@
 <?php
 
+use App\Http\Controllers\checkoutController;
+use App\Http\Controllers\homeController;
+use App\Http\Controllers\keranjangController;
+use App\Http\Controllers\orderController;
+use App\Http\Controllers\orderControllerAdmin;
 use App\Http\Controllers\produkController;
-use App\Http\Controllers\ProdukControllerUser;
 use App\Http\Controllers\tokoController;
+use App\Http\Controllers\userController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -20,51 +25,56 @@ use Illuminate\Support\Facades\Route;
 //     return view('welcome');
 // });
 
-Route::get('/', [ProdukControllerUser::class,'index']);
-Route::get('/home', [ProdukControllerUser::class,'index']);
+Route::get('/', [homeController::class,'index']);
+Route::get('/home', [homeController::class,'index']);
 
-Route::get('/produk/{id}', [ProdukControllerUser::class, 'show'])->name('produk.show');
+Route::get('/produk/{id}', [homeController::class, 'show'])->name('produk.show');
 
-Route::get('/profil', function(){
-    return view('user.profil-user');
-});
+Route::post('/tambah-keranjang/{id}', [keranjangController::class, 'tambahKeranjang']);
+Route::get('/hapus-keranjang/{id}', [keranjangController::class, 'hapusKeranjang'])->name('hapus-keranjang');
+Route::get('/order/create', [keranjangController::class, 'viewOrder'])->name('view-order');
+Route::get('/order/store', [keranjangController::class, 'prosesOrder'])->name('proses-order');
 
-Route::get('/pesanan', function(){
-    return view('user.pesanan-user');
-});
+Route::get('/profil', [userController::class, 'profilUser']);
 
-Route::get('/alamat', function(){
-    return view('user.alamat-user');
-});
+Route::get('/pesanan', [orderController::class, 'index'])->name('pesanan.semua');
+Route::get('/pesanan-menunggu-konfirmasi', [orderController::class, 'pesananMenungguKonfirmasi'])->name('pesanan.menunggu-konfirmasi');
+Route::get('/pesanan-dikemas', [orderController::class, 'pesananDikemas'])->name('pesanan.dikemas');
+Route::get('/pesanan-dikirim', [orderController::class, 'pesananDikirim'])->name('pesanan.dikirim');
+Route::get('/pesanan-selesai', [orderController::class, 'pesananSelesai'])->name('pesanan.selesai');
+Route::get('/pesanan-dibatalkan', [orderController::class, 'pesananDibatalkan'])->name('pesanan.dibatalkan');
+Route::get('/pesanan-dikembalikan', [orderController::class, 'pesananDikembalikan'])->name('pesanan.dikembalikan');
 
-Route::get('/wishlist', function(){
-    return view('user.wishlist');
-});
+Route::get('/alamat', [userController::class, 'alamatUser']);
 
-Route::get('/checkout', function(){
-    return view('user.checkout-produk');
-});
+Route::get('/wishlist', [userController::class, 'wishlistUser']);
+
 
 Route::get('/produk-kategori', function(){
     return view('user.produk-kategori');
 });
+
 
 // Route Admin
 Route::get('/dashboard-admin', function(){
     return view('admin.index');
 });
 
-Route::get('/pesanan-admin', function(){
-    return view('admin.pesanan-admin');
-});
+Route::get('/pesanan-admin', [orderControllerAdmin::class, 'index'])->name('pesananAdmin.semua');
+Route::get('/pesanan-admin-baru', [orderControllerAdmin::class, 'pesananBaru'])->name('pesananAdmin.baru');
+Route::get('/pesanan-admin-dikemas', [orderControllerAdmin::class, 'pesananDikemas'])->name('pesananAdmin.dikemas');
+Route::get('/pesanan-admin-siap-diambil', [orderControllerAdmin::class, 'pesananSiapDiAmbil'])->name('pesananAdmin.siap-diambil');
+Route::get('/pesanan-admin-selesai', [orderControllerAdmin::class, 'pesananSelesai'])->name('pesananAdmin.selesai');
+Route::get('/pesanan-admin-dibatalkan', [orderControllerAdmin::class, 'pesananDibatalkan'])->name('pesananAdmin.dibatalkan');
+Route::get('/pesanan-admin-dikembalikan', [orderControllerAdmin::class, 'pesananDikembalikan'])->name('pesananAdmin.dikembalikan');
+Route::get('/terima-pesanan/{id}', [orderControllerAdmin::class, 'terimaPesanan'])->name('terima-pesanan');
+Route::get('/tolak-pesanan/{id}', [orderControllerAdmin::class, 'tolakPesanan'])->name('tolak-pesanan');
 
 Route::get('/seting-profil-admin', function(){
     return view('admin.seting-profil-admin');
 });
 
-Route::get('/seting-toko-admin', function(){
-    return view('admin.seting-toko-admin');
-});
+Route::get('/seting-toko-admin',[tokoController::class,'index']);
 Route::get('/login-user', function(){
     return view('login.login');
 });

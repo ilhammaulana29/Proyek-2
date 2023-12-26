@@ -50,6 +50,7 @@ nav i{
     color: #FF69B4;
 }
 
+
 /* kotak hitam untuk kategori produk */
 .black-overlay {
     position: absolute;
@@ -128,4 +129,20 @@ nav i{
 .btn-simpan{
     color: #FFA3B2 !important;
     background-color: #fdcbd2 !important;
+}
+
+a{
+    cursor: pointer;
+}
+
+
+
+/* CSS UNTUK CHECKOUT */
+a.btn{
+    border: 1.8px solid #FA2D93;
+    color: #FA2D93;
+}
+a.btn:hover{
+    background-color: #FA2D93;
+    color: #fff;
 }

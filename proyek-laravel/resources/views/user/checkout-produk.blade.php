@@ -15,53 +15,75 @@
                 <p class="fs-4">Alamat Pengiriman</p>
             </div>
             <div class="link">
+                <p>{{ $dataUser->alamat_user }}</p>
                 <a href="" class="text-decoration-none" style="color: #FF77E9;">Tambah Alamat Baru</a>
             </div>
         </div>
     </div>
-    <div class="row mt-4 shadow-sm ps-4 pt-1 pe-4 pb-4 ms-1 me-1 rounded">
-        <div class="tag-pesanan d-flex justify-content-between">
-            <p class="fs-4">Produk Dipesan</p>
-            <p class="fs-6">Harga Satuan</p>
-            <p class="fs-6">Jumlah</p>
-            <p class="fs-6">Subtotal</p>
-        </div>
-        <div class="detail-pesanan d-flex justify-content-between">
-            <div class="d-flex align-items-center">
-                <img src="assets/images/produk1.png" alt="" style="width: 8rem; height: 8rem;">
-                <p class="fw-6 fw-semibold">Body Scarlet</p>
-            </div>
-            <p class="fs-6 fw-semibold">Rp75.000</p>
-            <p class="fs-6 fw-semibold">1</p>
-            <p class="fs-6 fw-semibold">Rp75.000</p>
-        </div>
-    </div>
+    <!-- Bagian Produk Dipesan -->
+    <table class="table shadow-sm ps-4 pt-1 pe-4 pb-4 ms-1 me-1 mt-4 rounded">
+        <thead>
+            <tr>
+                <th scope="col">Gambar Produk</th>
+                <th scope="col">Nama Produk</th>
+                <th scope="col">Harga Satuan</th>
+                <th scope="col">Jumlah</th>
+                <th scope="col">Subtotal</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach($dataKeranjang as $item)
+            <tr>
+                <td class="d-flex align-items-center">
+                    <img src="{{asset('assets/imgProduks/'.$item->gambar_produk)}}" alt="" style="width: 8rem; height: 8rem;">
+                </td>
+                <td class="fs-6">{{ $item->nama_produk }}</td>
+                <td class="fs-6">Rp {{ number_format($item->harga_produk/$item->kuantitas, 0, '.', '.') }}</td>
+                <td class="fs-6">{{ $item->kuantitas }}</td>
+                <td class="fs-6">Rp {{ number_format($item->harga_produk, 0, '.', '.') }}</td>
+            </tr>
+            @endforeach
+        </tbody>
+    </table>
+
     <div class="row mt-4 shadow-sm ps-4 pt-1 pe-4 pb-4 ms-1 me-1 rounded">
         <div class="opsi-pengiriman">
             <p class="fs-4">Opsi Pengiriman</p>
-            <select class="form-select" aria-label="Default select example">
+            <select class="form-select" aria-label="Default select example" name="pengiriman">
                 <option value="1">Hemat</option>
                 <option value="2">Cepat</option>
                 <option value="3">Chargo</option>
             </select>
             <div class="d-flex justify-content-between mt-3">
-                <p class="fs-6 fw-semibold">Akan diterima pada tanggal 15-16 Okt</p>
-                <p class="fs-6 fw-semibold">Rp15.000</p>
+                <p class="fs-6">Akan diterima pada tanggal 15-16 Okt</p>
+                <p class="fs-6">Rp15.000</p>
             </div>
         </div>
     </div>
-    <div class="mt-4 shadow-sm ps-4 pt-1 pe-4 pb-4 ms-1 me-1 rounded">
-        <p class="fs-4">Metode Pembayaran</p>
-        <a class="btn" href="#" role="button">Dana</a>
-        <a class="btn" href="#" role="button">BRI</a>
-        <a class="btn" href="#" role="button">Mandiri</a>
-        <a class="btn" href="#" role="button">BCA</a>
-        <a class="btn" href="#" role="button">BNI</a>
+    <div class="w-100 mt-4 shadow-sm ps-4 pt-1 pe-4 pb-4 ms-1 me-1 rounded">
+        <input type="radio" class="btn-check" name="options" id="option1" autocomplete="off" value="dana">
+        <label class="btn py-3" style="width: 10%;" for="option1"><img src="{{ asset('assets/images/dana.png') }}" class="w-100" alt=""></label>
+
+        <input type="radio" class="btn-check" name="options" id="option2" autocomplete="off" value="bri">
+        <label class="btn py-0" style="width: 10%;" for="option2"><img src="{{ asset('assets/images/bri.png') }}" class="w-100"  alt=""></label>
+
+        <input type="radio" class="btn-check" name="options" id="option3" autocomplete="off" value="bca">
+        <label class="btn py-2" style="width: 10%;" for="option3"><img src="{{ asset('assets/images/bca.png') }}" class="w-100"  alt=""></label>
     </div>
     <div class="card border-0 shadow-sm mt-4 ms-auto" style="width: 30rem;">
+        @php
+            $subtotal = 0;
+        @endphp
+
+        @foreach($dataKeranjang as $item)
+        @php
+            $subtotal += $item->harga_produk;
+        @endphp
+        @endforeach
+
         <div class="card-body d-flex justify-content-between">
             <p class="fw-semibold">Subtotal</p>
-            <p class="fw-semibold">Rp75.000</p>
+            <p class="fw-semibold">Rp {{ number_format($subtotal, 0, '.', '.') }}</p>
         </div>
         <div class="card-body d-flex justify-content-between">
             <p class="fw-semibold">Diskon</p>
@@ -74,9 +96,9 @@
         <hr class="ms-3 me-3 border border-1 border-black">
         <div class="card-body d-flex justify-content-between">
             <p class="fs-4" style="color: #FF77E9;">Total</p>
-            <p class="fw-semibold">Rp90.000</p>
+            <p class="fw-semibold">Rp {{ number_format($subtotal + 15000, 0, '.', '.') }}</p>
         </div>
-        <button type="button" class="btn me-3 ms-3 mb-3" style="background-color: #FF77E9; color: #fff;">Bayar Sekarang</button>
+        <button type="button" onclick="location.href='/order/store'" class="btn me-3 ms-3 mb-3" style="background-color: #FF77E9; color: #fff;">Buat Pesanan</button>
     </div>
 </div>
 @endsection

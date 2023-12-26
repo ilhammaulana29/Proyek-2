@@ -12,3 +12,4 @@ function swapImages() {
     activeItem.classList.remove('active');
     activeItem.nextElementSibling.classList.add('active');
 }
+  

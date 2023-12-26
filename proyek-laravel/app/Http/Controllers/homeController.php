@@ -6,9 +6,10 @@ use Illuminate\Http\Request;
 use App\Models\kategori;
 use App\Models\produk;
 use App\Models\toko;
+use App\Http\Controllers\keranjangController;
 
 
-class ProdukControllerUser extends Controller
+class homeController extends keranjangController
 {
     public function index()
     {
@@ -27,8 +28,9 @@ class ProdukControllerUser extends Controller
     public function show($id)
     {
         $dataProduk = produk::find($id);
+        $dataToko = toko::all();
 
-        return view('user.deskripsi-produk', compact('dataProduk'));
+        return view('user.deskripsi-produk', compact('dataProduk','dataToko'));
     }
 
 }

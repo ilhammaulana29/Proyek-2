@@ -4,11 +4,21 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\kategori;
+use App\Models\order;
 use App\Models\produk;
 use Illuminate\Support\Facades\Storage;
 
 class produkController extends Controller
 {
+        // Untuk membuat notifikasi di bagian pesanan yang mana dataOrderBaarunya akan dicount
+        public function __construct()
+        {
+            $dataOrderBaru = order::whereIn('status', ['Sudah bayar', 'Belum bayar'])->get();
+    
+            view()->share('dataOrderBaru', $dataOrderBaru);
+        }
+
+
     /**
      * Display a listing of the resource.
      *

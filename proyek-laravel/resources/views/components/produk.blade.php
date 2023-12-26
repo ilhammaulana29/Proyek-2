@@ -4,11 +4,15 @@
     @foreach($dataProduk as $item)
     <div class="col-2 mb-4">
       <div class="card">
-        <img src="{{ asset('assets/imgProduks/'.$item->gambar_produk) }}" class="card-img-top" alt="...">
+        <img src="{{ asset('assets/imgProduks/'.$item->gambar_produk) }}" class="card-img-top" height="200px" alt="...">
         <div class="card-body">
           <p class="card-title fw-semibold">{{ $item->nama_produk }}</p>
-          <a href="{{ route('produk.show', ['id' => $item->id_produk]) }}" class="text-decoration-none"><p class="card-text text-dark text-truncate" style="font-size:smaller;">{{ $item->deskripsi_produk }}</p></a>
-          <a href="{{ route('produk.show', ['id' => $item->id_produk]) }}" class="text-decoration-none"><p class="card-text text-dark fs-5 fw-semibold">{{ $item->harga_produk }}</p></a>
+          <a href="{{ route('produk.show', ['id' => $item->id_produk]) }}" class="text-decoration-none">
+            <p class="card-text text-dark text-truncate" style="font-size:smaller;">{{ $item->deskripsi_produk }}</p>
+          </a>
+          <a href="{{ route('produk.show', ['id' => $item->id_produk]) }}" class="text-decoration-none">
+            <p class="card-text text-dark fs-5 fw-semibold">{{ number_format($item->harga_produk, 0, '.', '.') }}</p>
+          </a>
         </div>
       </div>
     </div>

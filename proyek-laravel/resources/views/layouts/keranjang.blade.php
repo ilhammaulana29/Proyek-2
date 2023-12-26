@@ -4,55 +4,50 @@
     <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
   </div>
   <div class="offcanvas-body">
-    <nav class="nav d-flex justify-content-between">
-      <div class="form-check mt-2">
-        <input class="form-check-input color" type="checkbox" id="flexCheckDanger">
-        <label class="form-check-label fw-bold" for="flexCheckDefault">
-          Semua
-        </label>
-      </div>
-      <ul class="nav">
-        <li class="nav-item">
-          <a class="nav-link text-dark fw-bold" aria-current="page" href="#">Tambah Favorit</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link text-dark fw-bold" href="#">Hapus</a>
-        </li>
-      </ul>
-    </nav>
+    <?php $total_harga = 0; ?>
+    @forelse($dataKeranjang as $item)
+      <hr class="border border-secondary border-1 opacity-10">
+      <div class="row produk-keranjang mb-4">
+        <div class="col-md-4">
+          <img src="{{asset('assets/imgProduks/'.$item->gambar_produk)}}" class="card-img-top" alt="...">
+        </div>
 
-    <hr class="border border-secondary border-1 opacity-10">
+        <div class="col-md-6 lh-1">
+          <p>{{ $item->nama_produk }}</p>
+          <p style="color: #FFA3B2;">Rp {{ number_format($item->harga_produk, 0, '.', '.') }}</p>
+          <input type="number" class="rounded border-1" min="1" value="{{ $item->kuantitas }}" style="width: 6rem; height: 2rem" name="kuantitas">
+        </div>
 
-    <div class="row produk-keranjang mb-4">
-      <div class="col-md-1">
-        <input class="form-check-input" type="checkbox">
+        <div class="col-md-2">
+              <a class="nav-link text-dark fw-bold" href="{{ url('/hapus-keranjang', $item->id_keranjang) }}">Hapus</a>
+          </ul>
+        </div>
       </div>
 
-      <div class="col-md-4">
-        <img src="/assets/images/scrub.jpeg" class="card-img-top" alt="...">
-      </div>
+      <!-- Menghitung total harga -->
+      <?php $total_harga = $total_harga + $item->harga_produk ?>
 
-      <div class="col-md-6 lh-1">
-        <p>Scrub F-100</p>
-        <p style="color: #FFA3B2;">Rp 65.000</p>
-        <input type="number" class="rounded border-1" style="width: 6rem; height: 2rem">
+    @empty
+      <div class="text-center my-4">
+        <img src="/assets/images/belanja.png" alt="">
+        <p class="fs-5">Keranjang Anda kosong.</p>
       </div>
-    </div>
+    @endforelse
 
     <div class="d-flex justify-content-between">
       <p class="fs-4">TOTAL</p>
-      <p class="fs-4" style="color: #FFA3B2;">Rp 65.000</p>
+      <p class="fs-4" style="color: #FFA3B2;">{{ number_format($total_harga, 0, '.', '.') }}</p>
     </div>
 
     <div class="row mb-3">
       <div class="col-md-12">
-        <button type="submit" class="btn btn-batal border-danger-subtle w-100 fw-semibold">Beli Sekarang</button>
+        <a class="btn btn-batal border-danger-subtle w-100 fw-semibold" href="{{ route('view-order') }}">Beli Sekarang</a>
       </div>
     </div>
 
     <div class="row">
       <div class="col-md-12">
-        <button type="submit" class="btn btn-simpan w-100 fw-semibold">Lanjut Belanja</button>
+        <a class="btn btn-simpan w-100 fw-semibold">Lanjut Belanja</a>
       </div>
     </div>
   </div>

@@ -32,7 +32,7 @@
       </form>
       <ul class="navbar-nav">
         <li class="nav-item">
-          <a class="nav-link " aria-current="page" href="#"><i class="bi bi-person-fill fs-4"></i></a>
+          <a class="nav-link " aria-current="page" href="/profil"><i class="bi bi-person-fill fs-4"></i></a>
         </li>
         <li class="nav-item me-3">
           <a class="nav-link" data-bs-toggle="offcanvas" data-bs-target="#offcanvasWithBothOptions" aria-controls="offcanvasWithBothOptions" aria-current="page" href="#"><i class="bi bi-cart4 fs-4"></i></a>

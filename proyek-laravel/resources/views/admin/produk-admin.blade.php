@@ -7,7 +7,7 @@
         <div class="row">
                 @include('components.sidebar-admin')
             <div class="col-md kolom-kanan">
-                <nav class="navbar navbar-expand-lg bg-body-tertiary">
+                <nav class="navbar navbar-expand-lg bg-body-tertiary nav-underline">
                     <div class="container-fluid">
                       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                         <span class="navbar-toggler-icon"></span>
@@ -27,9 +27,8 @@
                                 <label class="visually-hidden" for="autoSizingSelect">Preference</label>
                                 <select class="form-select" id="autoSizingSelect">
                                 <option selected>Urutkan...</option>
-                                <option value="1">One</option>
-                                <option value="2">Two</option>
-                                <option value="3">Three</option>
+                                <option value="1">Termahal</option>
+                                <option value="2">Termurah</option>
                                 </select>
                             </div>
                       </div>
@@ -59,7 +58,7 @@
                         </th>
                         <td>{{ $item->nama_produk }}</td>
                         <td>{{ $item->nama_kategori }}</td>
-                        <td>{{ $item->harga_produk }}</td>
+                        <td>{{ number_format($item->harga_produk, 0, '.', '.') }}</td>
                         <td>{{ $item->stok_produk }}</td>
                         <td>
                             <a href="/produk-admin/edit/{{ $item->id_produk }}" class="btn btn-primary">Edit</a>
