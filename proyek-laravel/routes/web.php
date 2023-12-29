@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\adminController;
 use App\Http\Controllers\checkoutController;
 use App\Http\Controllers\homeController;
 use App\Http\Controllers\keranjangController;
@@ -70,11 +71,8 @@ Route::get('/pesanan-admin-dikembalikan', [orderControllerAdmin::class, 'pesanan
 Route::get('/terima-pesanan/{id}', [orderControllerAdmin::class, 'terimaPesanan'])->name('terima-pesanan');
 Route::get('/tolak-pesanan/{id}', [orderControllerAdmin::class, 'tolakPesanan'])->name('tolak-pesanan');
 
-Route::get('/seting-profil-admin', function(){
-    return view('admin.seting-profil-admin');
-});
 
-Route::get('/seting-toko-admin',[tokoController::class,'index']);
+
 Route::get('/login-user', function(){
     return view('login.login');
 });
@@ -88,6 +86,11 @@ Route::post('/produk-admin/store',[produkController::class,'store']);
 Route::get('/produk-admin/edit/{id}',[produkController::class,'edit']);
 Route::post('/produk-admin/update/{id}',[produkController::class,'update']);
 Route::get('/produk-admin/destroy/{id}',[produkController::class,'destroy']);
+
+
+// Route seting toko dan profil admin
+Route::get('/seting-profil-admin',[adminController::class,'index']);
+Route::post('/seting-profil-admin/update',[adminController::class,'update']);
 
 // Route::post('/toko/update/{id}', [tokoController::class,'update']);
 Route::get('seting-toko-admin',[tokoController::class,'index']);

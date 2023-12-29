@@ -10,7 +10,7 @@ use Illuminate\Support\Facades\Storage;
 
 class produkController extends Controller
 {
-        // Untuk membuat notifikasi di bagian pesanan yang mana dataOrderBaarunya akan dicount
+        // Untuk membuat notifikasi di bagian pesanan yang mana dataOrderBarunya akan dicount
         public function __construct()
         {
             $dataOrderBaru = order::whereIn('status', ['Sudah bayar', 'Belum bayar'])->get();
