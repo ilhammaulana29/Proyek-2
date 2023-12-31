@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\adminController;
 use App\Http\Controllers\checkoutController;
+use App\Http\Controllers\dashboardController;
 use App\Http\Controllers\homeController;
 use App\Http\Controllers\keranjangController;
 use App\Http\Controllers\orderController;
@@ -57,9 +58,8 @@ Route::get('/produk-kategori', function(){
 
 
 // Route Admin
-Route::get('/dashboard-admin', function(){
-    return view('admin.index');
-});
+Route::get('/dashboard-admin', [dashboardController::class, 'index']);
+Route::get('/orders', [dashboardController::class, 'dataOrder']);
 
 Route::get('/pesanan-admin', [orderControllerAdmin::class, 'index'])->name('pesananAdmin.semua');
 Route::get('/pesanan-admin-baru', [orderControllerAdmin::class, 'pesananBaru'])->name('pesananAdmin.baru');

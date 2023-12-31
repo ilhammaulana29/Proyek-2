@@ -34,7 +34,6 @@
 }
 
 .kolom-kanan {
-    padding: 1rem; /* Sesuaikan padding sesuai kebutuhan */
     overflow-y: scroll; /* Aktifkan scroll vertikal pada kolom-kanan */
     height: 100vh; /* Pastikan tinggi mencapai tinggi layar penuh */
 }
