@@ -13,11 +13,11 @@
         <li class="nav-item dropdown no-border">
           <a class="nav-link dropdown-toggle me-3 {{ request()->is('produk-kategori*') ? 'active' : ''   }}" data-bs-toggle="dropdown" aria-expanded="false">Produk</a>
           <ul class="dropdown-menu border-0">
-            <li><a class="dropdown-item" href="#">Semua</a></li>
-            <li><a class="dropdown-item" href="#">Perawatan Badan</a></li>
-            <li><a class="dropdown-item" href="#">Perawatan Wajah</a></li>
-            <li><a class="dropdown-item" href="#">Perawatan Rambut</a></li>
-            <li><a class="dropdown-item" href="#">Parfum</a></li>
+            <li><a class="dropdown-item" href="/semua">Semua</a></li>
+            <li><a class="dropdown-item" href="/perawatan-badan">Perawatan Badan</a></li>
+            <li><a class="dropdown-item" href="perawatan-wajah">Perawatan Wajah</a></li>
+            <li><a class="dropdown-item" href="perawatan-rambut">Perawatan Rambut</a></li>
+            <li><a class="dropdown-item" href="parfum">Parfum</a></li>
           </ul>
         </li>
         <li class="nav-item">

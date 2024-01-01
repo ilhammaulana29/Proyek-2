@@ -12,4 +12,43 @@ function swapImages() {
     activeItem.classList.remove('active');
     activeItem.nextElementSibling.classList.add('active');
 }
+
+
+// SCRIPT UNTUK MENAMPILKAN KAETEGORI PRODUK SESUAI CHECKBOX YANG DICEKLIS
+document.addEventListener('DOMContentLoaded', function () {
+    const checkboxes = document.querySelectorAll('.form-check-input');
+  
+    checkboxes.forEach(function (checkbox) {
+      checkbox.addEventListener('change', function () {
+        const selectedCategories = [];
+  
+        checkboxes.forEach(function (cb) {
+          if (cb.checked) {
+            selectedCategories.push(cb.value);
+          }
+        });
+  
+        // Menambahkan token CSRF ke header permintaan
+        const csrfToken = document.querySelector('meta[name="csrf-token"]').getAttribute('content');
+  
+        fetch('/update-categories', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            'X-CSRF-TOKEN': csrfToken,
+          },
+          body: JSON.stringify({ categories: selectedCategories }),
+        })
+          .then(response => response.json())
+          .then(data => {
+            // Handle respons dari server jika diperlukan
+            console.log(data);
+          })
+          .catch(error => {
+            console.error('Error:', error);
+          });
+      });
+    });
+  });
+  
   

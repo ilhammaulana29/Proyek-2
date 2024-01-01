@@ -4,6 +4,7 @@ use App\Http\Controllers\adminController;
 use App\Http\Controllers\checkoutController;
 use App\Http\Controllers\dashboardController;
 use App\Http\Controllers\homeController;
+use App\Http\Controllers\kategoriProdukController;
 use App\Http\Controllers\keranjangController;
 use App\Http\Controllers\orderController;
 use App\Http\Controllers\orderControllerAdmin;
@@ -52,9 +53,13 @@ Route::get('/alamat', [userController::class, 'alamatUser']);
 Route::get('/wishlist', [userController::class, 'wishlistUser']);
 
 
-Route::get('/produk-kategori', function(){
-    return view('user.produk-kategori');
-});
+Route::get('/semua', [kategoriProdukController::class, 'index']);
+Route::get('/perawatan-badan', [kategoriProdukController::class, 'perawatanBadan']);
+Route::get('/perawatan-wajah', [kategoriProdukController::class, 'perawatanWajah']);
+Route::get('/perawatan-rambut', [kategoriProdukController::class, 'perawatanRambut']);
+Route::get('/parfum', [kategoriProdukController::class, 'parfum']);
+Route::post('/update-categories', [kategoriProdukController::class, 'updateCategories']);
+
 
 
 // Route Admin

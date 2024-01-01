@@ -3,7 +3,7 @@
 @section('title', 'Produk Kategori')
 
 @section('custom-css')
-    <link href="{{ asset('assets/css/profil.css') }}" rel="stylesheet">
+<link href="{{ asset('assets/css/profil.css') }}" rel="stylesheet">
 @endsection
 
 @section('content')
@@ -13,80 +13,26 @@
             @include('components.sidebar-produk')
         </div>
         <div class="col-md-9 kolom-kanan">
-        <div class="produk-kategori">
-                    <div class="row mb-4">
-                        <div class="col-3 mb-4">
-                            <div class="card">
-                                <img src="assets/images/produk1.png" class="card-img-top" alt="...">
-                                <div class="card-body">
-                                    <h5 class="card-title">Card title</h5>
-                                    <a href="" class="text-decoration-none">
-                                        <p class="card-text text-dark">Deskripsi Produks</p>
-                                    </a>
-                                    <a href="" class="text-decoration-none">
-                                        <p class="card-text text-dark">80.000</p>
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-3">
-                            <div class="card">
-                                <img src="assets/images/produk1.png" class="card-img-top" alt="...">
-                                <div class="card-body">
-                                    <h5 class="card-title">Card title</h5>
-                                    <a href="" class="text-decoration-none">
-                                        <p class="card-text text-dark">Deskripsi Produks</p>
-                                    </a>
-                                    <a href="" class="text-decoration-none">
-                                        <p class="card-text text-dark">80.000</p>
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-3">
-                            <div class="card">
-                                <img src="assets/images/produk1.png" class="card-img-top" alt="...">
-                                <div class="card-body">
-                                    <h5 class="card-title">Card title</h5>
-                                    <a href="" class="text-decoration-none">
-                                        <p class="card-text text-dark">Deskripsi Produks</p>
-                                    </a>
-                                    <a href="" class="text-decoration-none">
-                                        <p class="card-text text-dark">80.000</p>
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-3">
-                            <div class="card">
-                                <img src="assets/images/produk1.png" class="card-img-top" alt="...">
-                                <div class="card-body">
-                                    <h5 class="card-title">Card title</h5>
-                                    <a href="" class="text-decoration-none">
-                                        <p class="card-text text-dark">Deskripsi Produks</p>
-                                    </a>
-                                    <a href="" class="text-decoration-none">
-                                        <p class="card-text text-dark">80.000</p>
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-3">
-                            <div class="card">
-                                <img src="assets/images/produk1.png" class="card-img-top" alt="...">
-                                <div class="card-body">
-                                    <h5 class="card-title">Card title</h5>
-                                    <a href="" class="text-decoration-none">
-                                        <p class="card-text text-dark">Deskripsi Produks</p>
-                                    </a>
-                                    <a href="" class="text-decoration-none">
-                                        <p class="card-text text-dark">80.000</p>
-                                    </a>
-                                </div>
+            <div class="produk-kategori">
+                <div class="row mb-4">
+                    @foreach($dataProduk as $item)
+                    <div class="col-3 mb-4">
+                        <div class="card">
+                            <img src="{{ asset('assets/imgProduks/'.$item->gambar_produk) }}" class="card-img-top" height="200px" alt="...">
+                            <div class="card-body">
+                                <p class="card-title fw-semibold">{{ $item->nama_produk }}</p>
+                                <a href="{{ route('produk.show', ['id' => $item->id_produk]) }}" class="text-decoration-none">
+                                    <p class="card-text text-dark text-truncate" style="font-size:smaller;">{{ $item->deskripsi_produk }}</p>
+                                </a>
+                                <a href="{{ route('produk.show', ['id' => $item->id_produk]) }}" class="text-decoration-none">
+                                    <p class="card-text text-dark fs-5 fw-semibold">{{ number_format($item->harga_produk, 0, '.', '.') }}</p>
+                                </a>
                             </div>
                         </div>
                     </div>
+                    @endforeach
                 </div>
+            </div>
         </div>
     </div>
 </div>
