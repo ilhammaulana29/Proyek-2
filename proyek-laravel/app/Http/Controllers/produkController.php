@@ -26,15 +26,12 @@ class produkController extends Controller
      */
     public function index()
     {
-        $dataProduk = produk::join(
-            'kategori',
-            'produk.kd_kategori',
-            '=',
-            'kategori.kd_kategori'
-        )
-            ->get();
+        $dataProduk = produk::join('kategori', 'produk.kd_kategori', '=', 'kategori.kd_kategori')
+                            ->simplePaginate(5); // Menampilkan 6 produk per halaman
+    
         return view('admin.produk-admin', compact('dataProduk'));
     }
+    
 
     /**
      * Show the form for creating a new resource.

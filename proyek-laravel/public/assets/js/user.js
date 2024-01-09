@@ -51,4 +51,29 @@ document.addEventListener('DOMContentLoaded', function () {
     });
   });
   
-  
+
+
+  // Script untuk menampilkan form edit profil
+  var btnEditProfil = document.getElementById('editProfil');
+
+  btnEditProfil.addEventListener('click', function(){
+    var elementEdit = document.getElementById('formEdit');
+
+    if(elementEdit.style.display == 'none'){
+      elementEdit.style.display = 'block';
+    }else{
+      elementEdit.style.display = 'none';
+    }
+
+  });
+
+
+  var btnBatal = document.querySelector('#btnBatal');
+
+  btnBatal.addEventListener('click', function(){
+    var elementEdit = document.getElementById('formEdit');
+
+    elementEdit.style.display = 'none';
+  });
+
+

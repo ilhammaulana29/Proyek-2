@@ -12,6 +12,9 @@ class toko extends Model
     protected $primaryKey = 'id_toko';
     protected $fillable = [
         'logo_toko',
+        'baner1',
+        'baner2',
+        'baner3',
         'foto_ba',
         'email_toko',
         'alamat_toko',

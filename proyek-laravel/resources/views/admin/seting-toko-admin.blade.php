@@ -14,7 +14,22 @@
                 @foreach($dataToko as $item)
                 <div class="d-flex mb-5">
                     <p>Logo Toko</p>
-                    <input class="form-control" type="file" name="logo_toko">
+                    <input class="form-control" type="file" name="logo_toko1">
+                </div>
+
+                <div class="d-flex mb-5">
+                    <p>Banner 1</p>
+                    <input class="form-control" type="file" name="baner1">
+                </div>
+
+                <div class="d-flex mb-5">
+                    <p>Banner 2</p>
+                    <input class="form-control" type="file" name="baner2">
+                </div>
+
+                <div class="d-flex mb-5">
+                    <p>Banner 3</p>
+                    <input class="form-control" type="file" name="baner3">
                 </div>
                 
                 <div class="d-flex mb-5">

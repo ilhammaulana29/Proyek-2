@@ -38,9 +38,9 @@
                     <img src="{{asset('assets/imgProduks/'.$item->gambar_produk)}}" alt="" style="width: 8rem; height: 8rem;">
                 </td>
                 <td class="fs-6">{{ $item->nama_produk }}</td>
-                <td class="fs-6">Rp {{ number_format($item->harga_produk/$item->kuantitas, 0, '.', '.') }}</td>
-                <td class="fs-6">{{ $item->kuantitas }}</td>
                 <td class="fs-6">Rp {{ number_format($item->harga_produk, 0, '.', '.') }}</td>
+                <td class="fs-6">{{ $item->kuantitas }}</td>
+                <td class="fs-6">Rp {{ number_format($item->harga_kuantitas, 0, '.', '.') }}</td>
             </tr>
             @endforeach
         </tbody>
@@ -77,7 +77,7 @@
 
         @foreach($dataKeranjang as $item)
         @php
-            $subtotal += $item->harga_produk;
+            $subtotal += $item->harga_kuantitas;
         @endphp
         @endforeach
 
@@ -89,16 +89,21 @@
             <p class="fw-semibold">Diskon</p>
             <p class="fw-semibold">0</p>
         </div>
-        <div class="card-body d-flex justify-content-between">
-            <p class="fw-semibold">Ongkos kirim</p>
-            <p class="fw-semibold">Rp15.000</p>
-        </div>
-        <hr class="ms-3 me-3 border border-1 border-black">
-        <div class="card-body d-flex justify-content-between">
-            <p class="fs-4" style="color: #FF77E9;">Total</p>
-            <p class="fw-semibold">Rp {{ number_format($subtotal + 15000, 0, '.', '.') }}</p>
-        </div>
-        <button type="button" onclick="location.href='/order/store'" class="btn me-3 ms-3 mb-3" style="background-color: #FF77E9; color: #fff;">Buat Pesanan</button>
+        <form action="{{ route('proses-order') }}" method="post">
+            @csrf
+            <div class="card-body d-flex justify-content-between">
+                <p class="fw-semibold">Ongkos kirim</p>
+                <p class="fw-semibold">Rp15.000</p>
+                <input type="hidden" name="ongkir" id="ongkir" value="15000">
+            </div>
+            <hr class="ms-3 me-3 border border-1 border-black">
+            <div class="card-body d-flex justify-content-between">
+                <p class="fs-4" style="color: #FF77E9;">Total</p>
+                <p class="fw-semibold">Rp {{ number_format($subtotal + 15000, 0, '.', '.') }}</p>
+                <input type="hidden" name="total_harga" id="total_harga" value="{{ $subtotal + 15000 }}">
+            </div>
+            <button type="submit" class="btn me-3 ms-3 mb-3" style="background-color: #FF77E9; color: #fff;">Buat Pesanan</button>
+        </form>
     </div>
 </div>
 @endsection

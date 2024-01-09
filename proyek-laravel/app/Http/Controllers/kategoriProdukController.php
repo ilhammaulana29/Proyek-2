@@ -2,58 +2,51 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\keranjang;
 use App\Models\produk;
-use App\Models\toko;
-use App\Models\userdami;
 use Illuminate\Http\Request;
+
 
 class kategoriProdukController extends Controller
 {
-    public function __construct()
-    {
-        $id_user = userdami::where('id_user', 1)->first();
-        $dataKeranjang = keranjang::where('id_user', $id_user->id_user)->get();
-
-        $dataToko = toko::all();
-        view()->share('dataToko', $dataToko);
-        view()->share('dataKeranjang', $dataKeranjang);
-    }
-
 
     public function index()
     {
         $dataProduk = produk::all();
+        $dataKategori = "Semua Produk";
 
-        return view('user.produk-kategori', compact('dataProduk'));
+        return view('user.produk-kategori', compact('dataProduk', 'dataKategori'));
     }
 
     public function perawatanBadan()
     {
         $dataProduk = produk::where('kd_kategori', 'PRBDN')->get();
+        $dataKategori = "Produk Perawatan Badan";
 
-        return view('user.produk-kategori', compact('dataProduk'));
+        return view('user.produk-kategori', compact('dataProduk', 'dataKategori'));
     }
 
     public function perawatanWajah()
     {
         $dataProduk = produk::where('kd_kategori', 'PRWJH')->get();
+        $dataKategori = "Produk Perawatan Wajah";
 
-        return view('user.produk-kategori', compact('dataProduk'));
+        return view('user.produk-kategori', compact('dataProduk', 'dataKategori'));
     }
 
     public function perawatanRambut()
     {
         $dataProduk = produk::where('kd_kategori', 'PRRBT')->get();
+        $dataKategori = "Produk Perawatan Rambut";
 
-        return view('user.produk-kategori', compact('dataProduk'));
+        return view('user.produk-kategori', compact('dataProduk', 'dataKategori'));
     }
 
     public function parfum()
     {
         $dataProduk = produk::where('kd_kategori', 'PRFM')->get();
+        $dataKategori = "Produk Parfum";
 
-        return view('user.produk-kategori', compact('dataProduk'));
+        return view('user.produk-kategori', compact('dataProduk', 'dataKategori'));
     }
 
 

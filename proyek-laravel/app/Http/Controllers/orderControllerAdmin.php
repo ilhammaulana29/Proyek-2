@@ -18,44 +18,63 @@ class orderControllerAdmin extends Controller
 
     public function index()
     {
-        $dataOrder = order::all();
+        $dataOrder = order::all()
+                            ->sortByDesc('created_at');
+
         return view('admin.pesanan-admin', compact('dataOrder'));
     }
 
     public function pesananBaru()
     {
-        $dataOrder = order::whereIn('status', ['Sudah bayar', 'Belum bayar'])->get();
+        $dataOrder = order::whereIn('status', ['Sudah bayar', 'Belum bayar'])
+                                    ->get()
+                                    ->sortByDesc('created_at');
+
         return view('admin.pesanan-admin', compact('dataOrder'));
 
     }
 
     public function pesananDikemas()
     {
-        $dataOrder = order::where('status', 'Dikemas')->get();
+        $dataOrder = order::where('status', 'Dikemas')
+                                ->get()
+                                ->sortByDesc('created_at');
+
         return view('admin.pesanan-admin', compact('dataOrder'));
     }
 
     public function pesananSiapDiAmbil()
     {
-        $dataOrder = order::where('status', 'Dikirim')->get();
+        $dataOrder = order::where('status', 'Dikirim')
+                                ->get()
+                                ->sortByDesc('created_at');
+
         return view('admin.pesanan-admin', compact('dataOrder'));
     }
 
     public function pesananSelesai()
     {
-        $dataOrder = order::where('status', 'Selesai')->get();
+        $dataOrder = order::where('status', 'Selesai')
+                                ->get()
+                                ->sortByDesc('created_at');
+
         return view('admin.pesanan-admin', compact('dataOrder'));
     }
 
     public function pesananDibatalkan()
     {
-        $dataOrder = order::where('status', 'Dibatalkan')->get();
+        $dataOrder = order::where('status', 'Dibatalkan')
+                                ->get()
+                                ->sortByDesc('created_at');
+
         return view('admin.pesanan-admin', compact('dataOrder'));
     }
 
     public function pesananDikembalikan()
     {
-        $dataOrder = order::where('status', 'Pengembalian')->get();
+        $dataOrder = order::where('status', 'Pengembalian')
+                                ->get()
+                                ->sortByDesc('created_at');
         return view('admin.pesanan-admin', compact('dataOrder'));
     }
 
@@ -74,6 +93,15 @@ class orderControllerAdmin extends Controller
     {
         $dataOrder = order::find($id);
         $dataOrder->status = "Dibatalkan";
+        $dataOrder->save();
+
+        return redirect()->back();
+    }
+
+    public function pesananSiap($id)
+    {
+        $dataOrder = order::find($id);
+        $dataOrder->status = "Dikirim";
         $dataOrder->save();
 
         return redirect()->back();

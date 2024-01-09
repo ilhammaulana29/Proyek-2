@@ -10,6 +10,6 @@
         <p><a href="/pesanan-admin" class="text-decoration-none text-white fs-5 {{ request()->is('pesanan-admin*') ? 'active' : '' }}">Pesanan <span class="badge text-bg-warning rounded-circle">{{ count($dataOrderBaru) }}</span></a></p>
         <p><a href="/produk-admin" class="text-decoration-none text-white fs-5 {{ request()->is('produk-admin*') ? 'active' : '' }}">Produk</a></p>
         <p><a href="/seting-profil-admin" class="text-decoration-none text-white fs-5 {{ request()->is('seting-profil-admin*','seting-toko-admin') ? 'active' : '' }}">Seting</a></p>
-        <p><a href="" class="text-decoration-none text-white fs-5 {{ request()->is('keluar*') ? 'active' : '' }}">Keluar</a></p>
+        <p><a href="{{ route('proses.logout') }}" class="text-decoration-none text-white fs-5 {{ request()->is('keluar*') ? 'active' : '' }}">Keluar</a></p>
     </div>
 </div>

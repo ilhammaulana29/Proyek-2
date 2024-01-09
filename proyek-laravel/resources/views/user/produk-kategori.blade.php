@@ -9,14 +9,12 @@
 @section('content')
 <div class="container-fluid mt-2">
     <div class="row">
-        <div class="col-md-3 kolom-kiri">
-            @include('components.sidebar-produk')
-        </div>
-        <div class="col-md-9 kolom-kanan">
+        <div class="col kolom-kanan">
             <div class="produk-kategori">
+                <h4 class="mb-3" style="color: #FF69B4">{{ $dataKategori }}</h4>
                 <div class="row mb-4">
                     @foreach($dataProduk as $item)
-                    <div class="col-3 mb-4">
+                    <div class="col-2 mb-4">
                         <div class="card">
                             <img src="{{ asset('assets/imgProduks/'.$item->gambar_produk) }}" class="card-img-top" height="200px" alt="...">
                             <div class="card-body">

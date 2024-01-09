@@ -143,6 +143,23 @@ a.btn{
     color: #FA2D93;
 }
 a.btn:hover{
+    /* background-color: #FA2D93; */
+    color: #fff;
+}
+
+.konfirm-pesanan a{
+    border: 0;
+    color: white;
+}
+
+
+/* CSS UTK TOMBOL KERANJANG KETKA ITEM KOSONG */
+.btn-keranjang-kosong a{
     background-color: #FA2D93;
+    color: #fff;
+}
+
+.btn-keranjang-kosong a:hover{
+    background-color: #f53997;
     color: #fff;
 }

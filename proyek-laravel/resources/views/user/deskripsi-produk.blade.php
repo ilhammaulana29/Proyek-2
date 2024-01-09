@@ -22,7 +22,20 @@
                         <button type="submit" class="btn" style="color: #FF9BEF; background-color: #fff">Tambah ke keranjang</button>
                     </form>
                     <div class="favorit share d-flex mt-3">
-                        <a href="" class="d-flex align-items-center text-decoration-none text-white me-3"><i class="bi bi-heart fs-4 me-3"></i> Tambah Favorit</a>
+                        <form action="{{ route('tambah.wishlist', $dataProduk->id_produk) }}" method="post">
+                            @csrf
+                            <button type="submit" class="d-flex align-items-center text-decoration-none text-white me-3" style="border: none; background-color: transparent;">
+                            <i class="bi bi-heart fs-4 me-3" style="{{Auth()->check() && $wishlistProduk->where('id_produk', $dataProduk->id_produk)->where('id_user', Auth::user()->id)->isNotEmpty() ? 'color: red;' : '' }}"></i>
+                                <span>
+                                    @if(  Auth()->check() && $wishlistProduk->where('id_produk', $dataProduk->id_produk)->where('id_user', Auth::user()->id)->isNotEmpty())
+                                    Hapus Favorit
+                                    @else
+                                    Tambah Favorit
+                                    @endif
+                                </span>
+                            </button>
+                        </form>
+
                         <a href="" class="d-flex align-items-center text-decoration-none text-white ms-3"><i class="bi bi-share fs-4 me-3"></i> Bagikan Produk</a>
                     </div>
                 </div>

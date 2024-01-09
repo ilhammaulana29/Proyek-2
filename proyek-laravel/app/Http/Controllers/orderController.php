@@ -6,30 +6,36 @@ use App\Models\keranjang;
 use Illuminate\Http\Request;
 use App\Models\order;
 use App\Models\toko;
-use App\Models\userdami;
+use Illuminate\Support\Facades\Auth;
+use App\Http\Controllers\keranjangController;
 
 
-class orderController extends Controller
+
+class orderController extends keranjangController
 {
     public function index()
     {
-        $id_user = userdami::where('id_user', 2)->first();
-        $dataKeranjang = keranjang::where('id_user', $id_user->id_user)->get();
+        $user = Auth::user();
+        $dataKeranjang = keranjang::where('id_user', $user->id)->get();
         $dataToko = toko::all();
-        $dataOrder = order::where('id_user', $id_user->id_user)->get();
+        $dataOrder = order::where('id_user', $user->id)
+                                ->get()
+                                ->sortByDesc('created_at');
         return view('user.pesanan-user', compact('dataOrder', 'dataToko', 'dataKeranjang'));
-
     }
+    
 
     public function pesananMenungguKonfirmasi()
     {
+        $user = Auth::user();
         $dataToko = toko::all();
-        $id_user = userdami::where('id_user', 2)->first();
-        $dataKeranjang = keranjang::where('id_user', $id_user->id_user)->get();
+        $dataKeranjang = keranjang::where('id_user', $user->id)->get();
 
-        $dataOrder = order::where('id_user', $id_user->id_user)
-        ->whereIn('status', ['Belum bayar', 'Sudah bayar'])
-        ->get();
+        $dataOrder = order::where('id_user', $user->id)
+                                ->whereIn('status', ['Belum bayar', 'Sudah bayar'])
+                                ->get()
+                                ->sortByDesc('created_at');
+
 
         return view('user.pesanan-user', compact('dataOrder','dataToko','dataKeranjang'));
 
@@ -37,11 +43,15 @@ class orderController extends Controller
 
     public function pesananDikemas()
     {
+        $user = Auth::user();
         $dataToko = toko::all();
-        $id_user = userdami::where('id_user', 2)->first();
-        $dataKeranjang = keranjang::where('id_user', $id_user->id_user)->get();
+        $dataKeranjang = keranjang::where('id_user', $user->id)->get();
 
-        $dataOrder = order::where('id_user', $id_user->id_user)->where('status', 'Dikemas')->get();
+        $dataOrder = order::where('id_user', $user->id)
+                                ->where('status', 'Dikemas')
+                                ->get()
+                                ->sortByDesc('created_at');
+
         return view('user.pesanan-user', compact('dataOrder','dataToko','dataKeranjang'));
 
 
@@ -49,11 +59,13 @@ class orderController extends Controller
 
     public function pesananDikirim()
     {
+        $user = Auth::user();
         $dataToko = toko::all();
-        $id_user = userdami::where('id_user', 2)->first();
-        $dataKeranjang = keranjang::where('id_user', $id_user->id_user)->get();
+        $dataKeranjang = keranjang::where('id_user', $user->id)
+                                        ->get()
+                                        ->sortByDesc('created_at');
 
-        $dataOrder = order::where('id_user', $id_user->id_user)->where('status', 'Dikirim')->get();
+        $dataOrder = order::where('id_user', $user->id)->where('status', 'Dikirim')->get();
         return view('user.pesanan-user', compact('dataOrder','dataToko','dataKeranjang'));
 
 
@@ -61,11 +73,13 @@ class orderController extends Controller
 
     public function pesananSelesai()
     {
+        $user = Auth::user();
         $dataToko = toko::all();
-        $id_user = userdami::where('id_user', 2)->first();
-        $dataKeranjang = keranjang::where('id_user', $id_user->id_user)->get();
+        $dataKeranjang = keranjang::where('id_user', $user->id)
+                                        ->get()
+                                        ->sortByDesc('created_at');
 
-        $dataOrder = order::where('id_user', $id_user->id_user)->where('status', 'Selesai')->get();
+        $dataOrder = order::where('id_user', $user->id)->where('status', 'Selesai')->get();
         return view('user.pesanan-user', compact('dataOrder','dataToko','dataKeranjang'));
 
 
@@ -73,11 +87,13 @@ class orderController extends Controller
 
     public function pesananDibatalkan()
     {
+        $user = Auth::user();
         $dataToko = toko::all();
-        $id_user = userdami::where('id_user', 2)->first();
-        $dataKeranjang = keranjang::where('id_user', $id_user->id_user)->get();
+        $dataKeranjang = keranjang::where('id_user', $user->id)
+                                        ->get()
+                                        ->sortByDesc('created_at');
 
-        $dataOrder = order::where('id_user', $id_user->id_user)->where('status', 'Dibatalkan')->get();
+        $dataOrder = order::where('id_user', $user->id)->where('status', 'Dibatalkan')->get();
         return view('user.pesanan-user', compact('dataOrder','dataToko','dataKeranjang'));
 
 
@@ -85,13 +101,33 @@ class orderController extends Controller
 
     public function pesananDikembalikan()
     {
+        $user = Auth::user();
         $dataToko = toko::all();
-        $id_user = userdami::where('id_user', 2)->first();
-        $dataKeranjang = keranjang::where('id_user', $id_user->id_user)->get();
+        $dataKeranjang = keranjang::where('id_user', $user->id)
+                                        ->get()
+                                        ->sortByDesc('created_at');
 
-        $dataOrder = order::where('id_user', $id_user->id_user)->where('status', 'Pengembalian')->get();
+        $dataOrder = order::where('id_user', $user->id)->where('status', 'Pengembalian')->get();
         return view('user.pesanan-user', compact('dataOrder','dataToko','dataKeranjang'));
 
 
+    }
+
+    public function terimaPesanan($id)
+    {
+        $dataOrder = order::find($id);
+        $dataOrder->status = "Selesai";
+        $dataOrder->save();
+
+        return redirect()->back();
+    }
+
+    public function batalkanPesanan($id)
+    {
+        $dataOrder = order::find($id);
+        $dataOrder->status = "Dibatalkan";
+        $dataOrder->save();
+
+        return redirect()->back();
     }
 }

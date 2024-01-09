@@ -42,3 +42,12 @@
 .kata-sandi{
     background-color: #ffdee3;
 }
+
+/* css utk btn pada edit profil */
+#editProfil:hover{
+    cursor: pointer;
+}
+
+#editProfil{
+    color: #FF69B4;
+}

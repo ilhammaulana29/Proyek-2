@@ -16,14 +16,15 @@
         <div class="card login-form">           
             <div class="card-body">
                 <h3 style="font-weight: bold;">Masuk</h3>
-            <form action="" method="POST">
+            <form action="{{ route('proses.login') }}" method="post">
+                @csrf
                 <div class="mb-4">
                 <label for="exampleInputEmail1" class="form-label">Alamat Email</label>
-                <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" style="background: rgba(235, 239, 184, 0.756)" placeholder="Email">
+                <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" style="background: rgba(235, 239, 184, 0.756)" placeholder="Email" name="email">
                 </div>
                 <div class="mb-3">
                 <label for="exampleInputPassword1" class="form-label">Kata Sandi</label>
-                <input type="password" class="form-control" id="exampleInputPassword1" style="background: rgba(235, 239, 184, 0.756)" placeholder="Kata Sandi">
+                <input type="password" class="form-control" id="exampleInputPassword1" style="background: rgba(235, 239, 184, 0.756)" placeholder="Kata Sandi" name="password">
                 </div>
 
                 <div class="d-flex justify-content-between">
@@ -53,7 +54,7 @@
                         <span style="font-weight: bold;">Belum punya akun?</span>
                     </div>
                     <div class="d-grid mt-5">
-                        <a href="/register-user" class="btn btn-success btn-login custom-button" style="background: rgba(235, 239, 184, 0.756)">Daftar di sini</a>
+                        <a href="/register" class="btn btn-success btn-login custom-button" style="background: rgba(235, 239, 184, 0.756)">Daftar di sini</a>
                     </div>
             </form>
             </div>

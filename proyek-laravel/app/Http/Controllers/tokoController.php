@@ -74,19 +74,44 @@ class tokoController extends Controller
     {
         $request->validate([
             'logo_toko' => 'image|mimes:jpeg,png,jpg|max:2048',
+            'baner1' => 'image|mimes:jpeg,png,jpg|max:2048',
+            'baner2' => 'image|mimes:jpeg,png,jpg|max:2048',
+            'baner3' => 'image|mimes:jpeg,png,jpg|max:2048',
             'foto_ba' => 'image|mimes:jpeg,png,jpg|max:2048',
         ]);
 
         $toko = toko::first();
 
-        if($request->hasFile('logo_toko')){
+        if($request->hasFile('logo_toko1')){
             // Proses unggah file baru
-            $image = $request->file('logo_toko');
+            $image = $request->file('logo_toko1');
             $imageName = $image->getClientOriginalName();
             $image->move(public_path('assets/images'), $imageName);
 
             // Update nama gambar di database
             $toko->update(['logo_toko' => $imageName]);
+        }
+
+        if($request->hasFile('baner1')){
+            $image = $request->file('baner1');
+            $imageName = $image->getClientOriginalName();
+            $image->move(public_path('assets/images'), $imageName);
+
+            $toko->update(['baner1' => $imageName]);
+        }
+        if($request->hasFile('baner2')){
+            $image = $request->file('baner2');
+            $imageName = $image->getClientOriginalName();
+            $image->move(public_path('assets/images'), $imageName);
+
+            $toko->update(['baner2' => $imageName]);
+        }
+        if($request->hasFile('baner3')){
+            $image = $request->file('baner3');
+            $imageName = $image->getClientOriginalName();
+            $image->move(public_path('assets/images'), $imageName);
+
+            $toko->update(['baner3' => $imageName]);
         }
 
         if($request->hasFile('foto_ba')){

@@ -21,7 +21,7 @@
                         <input type="email" class="form-control" id="email" value="{{ $dataAdmin->email_admin }}" name="email">
                     </div>
                 </div>
-                <div class="row mb-3">]
+                <div class="row mb-3">
                     <div class="col">
                         <label for="no_hp" class="form-label fw-semibold">No Hp</label>
                         <input type="number" class="form-control" id="no_hp" value="{{ $dataAdmin->no_hp }}" name="no_hp">

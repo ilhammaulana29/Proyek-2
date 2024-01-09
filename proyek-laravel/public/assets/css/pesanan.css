@@ -47,6 +47,11 @@
     color: #fff;
 }
 
+
+.isi-pesanan a:hover{
+    background-color: #f7208b;
+}
+
 .status-pesanan p:last-child{
     color: #FA2D93;
 }

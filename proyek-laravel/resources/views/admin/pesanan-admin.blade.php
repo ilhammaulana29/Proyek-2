@@ -22,7 +22,7 @@
                 @endif
               </a>
               <a class="nav-link ms-4 {{ request()->is('pesanan-admin-dikemas') ? 'active' : ''   }}" href="{{ route('pesananAdmin.dikemas') }}">Sedang Dikemas</a>
-              <a class="nav-link ms-4 {{ request()->is('pesanan-admin-siap-diambil') ? 'active' : ''   }}" href="{{ route('pesananAdmin.siap-diambil') }}">Siap Diambil</a>
+              <a class="nav-link ms-4 {{ request()->is('pesanan-admin-siap-diambil') ? 'active' : ''   }}" href="{{ route('pesananAdmin.siap-diambil') }}">Sedang Dikirim</a>
               <a class="nav-link ms-4 {{ request()->is('pesanan-admin-selesai') ? 'active' : ''   }}" href="{{ route('pesananAdmin.selesai') }}">Pesanan Selesai</a>
               <a class="nav-link ms-4 {{ request()->is('pesanan-admin-dibatalkan') ? 'active' : ''   }}" href="{{ route('pesananAdmin.dibatalkan') }}">Dibatalkan</a>
               <form class="d-flex" role="search">
@@ -61,6 +61,8 @@
           @if($item->status == "Belum bayar" || $item->status == "Sudah bayar")
           <a class="btn btn-outline-secondary" href="{{ route('terima-pesanan', $item->id_pesanan)}}">Terima</a>
           <a class="btn btn-secondary" href="{{ route('tolak-pesanan', $item->id_pesanan) }}">Tolak</a>
+          @elseif($item->status == "Dikemas")
+          <a class="btn btn-secondary" href="{{ route('pesanan-siap', $item->id_pesanan) }}">Siap Dikirim</a>
           @endif
         </div>
         <p class="fw-medium fs-5 text-end">Total Rp {{ number_format($item->harga_produk, 0, '.', '.') }}</p>

@@ -9,23 +9,28 @@
 </head>
 <body>
     <div class="container shadow-sm p-3 mb-3 rounded">
-        <form>
+        <form action="{{ route('proses.register') }}" method="post">
+            @csrf
             <h3 style="font-weight: bold;">Daftar</h3>
             <div class="mb-3">
                 <label for="exampleInputNama" class="nama">Nama Lengkap<span style="color: red;">*</span></label>
-                <input type="text" class="form-control" id="exampleInputNama" placeholder="Nama Lengkap">
+                <input type="text" class="form-control" id="exampleInputNama" placeholder="Nama Lengkap" name="nama">
             </div>            
             <div class="mb-3">
                 <label for="exampleInputEmail" class="email">Alamat Email<span style="color: red;">*</span></label>
-                <input type="email" class="form-control" id="exampleInputEmail" placeholder="Alamat Email">
+                <input type="email" class="form-control" id="exampleInputEmail" placeholder="Alamat Email" name="email">
+            </div>
+            <div class="mb-3">
+                <label for="exampleInputTglLahir" class="email">Tanggal Lahir<span style="color: red;">*</span></label>
+                <input type="date" class="form-control" id="exampleInputTglLahir" name="tgl_lahir">
             </div>
             <div class="mb-3">
                 <label for="exampleInputNomor" class="nomor handphone">Nomor Handphone<span style="color: red;">*</span></label>
-                <input type="text" class="form-control" id="exampleInputNomor" placeholder="089xxxxxxxxx">
+                <input type="number" class="form-control" id="exampleInputNomor" placeholder="089xxxxxxxxx" name="no_hp">
             </div>
             <div class="mb-3">
                 <label for="exampleInputSandi" class="sandi">Kata Sandi<span style="color: red;">*</span></label>
-                <input type="password" class="form-control" id="exampleInputSandi" placeholder="Kata Sandi">
+                <input type="password" class="form-control" id="exampleInputSandi" placeholder="Kata Sandi" name="password">
             </div>
             <div class="mb-3">
                 <label for="exampleInputUlangiSandi" class="ulang sandi">Ulangi Kata Sandi<span style="color: red;">*</span></label>
@@ -38,11 +43,11 @@
                 <span style="font-weight: bold;">Sudah punya akun?</span>
             </div>
             <div class="d-grid mt-5">
-                <a href="/login-user" class="btn btn-success btn-login custom-button" style="background: rgba(230, 83, 176, 0.756)">Masuk di sini</a>
+                <a href="/login" class="btn btn-success btn-login custom-button" style="background: rgba(230, 83, 176, 0.756)">Masuk di sini</a>
             </div>
-            {{-- <div class="d-grid mt-5">
+            <div class="d-grid mt-5">
                 <button type="submit" class="btn btn-success btn-login custom-button" style="background: rgba(230, 83, 176, 0.756)">Verifikasi ulang email</button>
-            </div> --}}
+            </div>
         </form>
     </div>
 

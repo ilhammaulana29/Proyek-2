@@ -4,10 +4,12 @@
     @foreach($dataProduk as $item)
     <div class="col-2 mb-4">
       <div class="card">
-        <img src="{{ asset('assets/imgProduks/'.$item->gambar_produk) }}" class="card-img-top" height="200px" alt="...">
+        <a href="{{ route('produk.show', ['id' => $item->id_produk]) }}">
+          <img src="{{ asset('assets/imgProduks/'.$item->gambar_produk) }}" class="card-img-top" height="200px" alt="...">
+        </a>
         <div class="card-body">
-          <p class="card-title fw-semibold">{{ $item->nama_produk }}</p>
           <a href="{{ route('produk.show', ['id' => $item->id_produk]) }}" class="text-decoration-none">
+            <p class="card-title fw-semibold text-black">{{ $item->nama_produk }}</p>
             <p class="card-text text-dark text-truncate" style="font-size:smaller;">{{ $item->deskripsi_produk }}</p>
           </a>
           <a href="{{ route('produk.show', ['id' => $item->id_produk]) }}" class="text-decoration-none">

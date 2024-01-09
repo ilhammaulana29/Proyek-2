@@ -21,13 +21,17 @@
                             <img src="assets/images/foto-cewe.png" class="rounded-circle img-thumbnail" alt="" style="object-fit: cover; width:13rem; height:13rem">
                         </div>
                         <div class="identitas ms-3">
-                            <p class="card-text fs-4 fw-semibold">Puja Ayu Trisnanda <i class="bi bi-pencil-square fs-4 fw-bold ms-5"></i></p>
-                            <p class="card-text fs-6 fw-bold">pujaayut@gmail.com</p>
+                            <div class="d-flex">
+                                <p class="card-text fs-4 fw-semibold">{{ Auth::user()->name }}</p>
+                                <i class="bi bi-pencil-square fs-4 fw-bold ms-5" id="editProfil"></i>
+                            </div>
+                            <p class="card-text fs-6 fw-bold">{{ Auth::user()->email }}</p>
                         </div>
                     </div>
                 </div>
             </div>
-            <form action="" method="" class="profil mt-5 shadow-sm p-3 ps-4 rounded mb-5">
+            <form action="{{ route('update.profil') }}" method="post" class="profil mt-5 shadow-sm p-3 ps-4 rounded mb-5" id="formEdit" style="display: none;">
+                @csrf
                 <p class="fs-3 fw-bold">EDIT PROFIL</p>
                 <div class="row mb-3">
                     <p class="fw-semibold">Jenis Kelamin</p>
@@ -47,21 +51,21 @@
                 <div class="row mb-3">
                     <div class="col">
                         <label for="nama" class="form-label fw-semibold">Nama</label>
-                        <input type="text" class="form-control" id="nama" name="nama">
+                        <input type="text" class="form-control" id="nama" name="nama" value="{{ Auth::user()->name }}">
                     </div>
                     <div class="col">
                         <label for="email" class="form-label fw-semibold">Email</label>
-                        <input type="email" class="form-control" id="email" name="email">
+                        <input type="email" class="form-control" id="email" name="email" value="{{ Auth::user()->email }}">
                     </div>
                 </div>
                 <div class="row mb-3">
                     <div class="col">
                         <label for="no_hp" class="form-label fw-semibold">No Hp</label>
-                        <input type="number" class="form-control" id="no_hp" name="no_hp">
+                        <input type="number" class="form-control" id="no_hp" name="no_hp" value="{{ Auth::user()->no_hp }}">
                     </div>
                     <div class="col">
                         <label for="tgl_lahir" class="form-label fw-semibold">Tanggal Lahir</label>
-                        <input type="date" class="form-control" id="tgl_lahir" name="tgl_lahir">
+                        <input type="date" class="form-control" id="tgl_lahir" name="tgl_lahir" value="{{ Auth::user()->tgl_lahir }}">
                     </div>
                 </div>
                 <div class="kata-sandi p-3 rounded">
@@ -79,7 +83,7 @@
                     </div>
                 </div>
                 <div class="row mt-3 mb-2 align-items-center">
-                    <button type="submit" class="btn btn-batal border-danger-subtle col-5 mx-auto fw-semibold">Batal</button>
+                    <button type="button" class="btn btn-batal border-danger-subtle col-5 mx-auto fw-semibold" id="btnBatal">Batal</button>
                     <button type="submit" class="btn btn-simpan col-5 mx-auto fw-semibold">Simpan</button>
                 </div>
             </form>
