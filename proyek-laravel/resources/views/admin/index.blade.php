@@ -11,6 +11,54 @@
             <div class="row" style="background-color: #FA2D93; height:5rem;">
                 <p class="fs-3 text-white m-auto">Dashboard Admin</p>
             </div>
+
+
+            <!-- Button trigger modal -->
+            <button type="button" class="btn mt-3" data-bs-toggle="modal" data-bs-target="#exampleModal" style="background-color: #FA2D83; color:#fff;">
+                User Registrasi <i class="bi bi-chevron-right ps-3"></i>
+            </button>
+
+            <!-- Modal -->
+            <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog modal-lg">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <table class="table table-hover">
+                                <thead>
+                                    <tr>
+                                        <th scope="col">Nama</th>
+                                        <th scope="col">Email</th>
+                                        <th scope="col">Terakhir Dilihat</th>
+                                        <th scope="col">Status</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach($user as $item)
+                                    <tr>
+                                        <td>{{ $item->name }}</td>
+                                        <td>{{ $item->email }}</td>
+                                        <td>{{ Carbon\Carbon::parse($item->last_seen)->diffForHumans() }}</td>
+                                        <td class="text-center">
+                                            <span class="bg-{{ $item->last_seen >= now()->subMinutes(2) ? 'success' : 'danger' }} p-2 rounded text-white">
+                                                {{ $item->last_seen >= now()->subMinutes(2) ? 'Online' : 'Offline' }}
+                                            </span>
+                                        </td>
+                                    </tr>
+                                    @endforeach
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
             <div class="row mt-5">
                 <div class="col-md-4">
                     <div class="card text-center">
@@ -56,55 +104,55 @@
 
 
                 // GRAFIK TOTAL PENDAPATAN PERHARI
-                    const ctx2 = document.getElementById('chartIncome').getContext('2d');
+                const ctx2 = document.getElementById('chartIncome').getContext('2d');
 
-                    // Ambil data dari route Laravel
-                    fetch('/orders')
-                        .then(response => response.json())
-                        .then(data => {
-                            // Proses data untuk mendapatkan total per hari
-                            var dailyTotals = {};
+                // Ambil data dari route Laravel
+                fetch('/orders')
+                    .then(response => response.json())
+                    .then(data => {
+                        // Proses data untuk mendapatkan total per hari
+                        var dailyTotals = {};
 
-                            data.forEach(order => {
-                                var tanggal = moment(order.created_at, 'YYYY-MM-DDTHH:mm:ss.SSSZ').format('DD MMM YYYY HH:mm');
+                        data.forEach(order => {
+                            var tanggal = moment(order.created_at, 'YYYY-MM-DDTHH:mm:ss.SSSZ').format('DD MMM YYYY HH:mm');
 
-                                var harga = parseFloat(order.harga_produk); // Sesuaikan dengan atribut di model Anda
+                            var harga = parseFloat(order.harga_produk); // Sesuaikan dengan atribut di model Anda
 
-                                if (dailyTotals[tanggal]) {
-                                    dailyTotals[tanggal] += harga;
-                                } else {
-                                    dailyTotals[tanggal] = harga;
+                            if (dailyTotals[tanggal]) {
+                                dailyTotals[tanggal] += harga;
+                            } else {
+                                dailyTotals[tanggal] = harga;
+                            }
+                        });
+
+                        // Konversi data ke format yang bisa digunakan oleh Chart.js
+                        var labels = Object.keys(dailyTotals);
+                        var chartData = {
+                            labels: labels,
+                            datasets: [{
+                                label: 'Total Pendapatan Per Hari',
+                                data: Object.values(dailyTotals),
+                                backgroundColor: 'rgba(75, 192, 192, 0.2)',
+                                borderColor: 'rgba(75, 192, 192, 1)',
+                                borderWidth: 1
+                            }]
+                        };
+
+                        var options = {
+                            scales: {
+                                y: {
+                                    beginAtZero: true
                                 }
-                            });
+                            }
+                        };
 
-                            // Konversi data ke format yang bisa digunakan oleh Chart.js
-                            var labels = Object.keys(dailyTotals);
-                            var chartData = {
-                                labels: labels,
-                                datasets: [{
-                                    label: 'Total Pendapatan Per Hari',
-                                    data: Object.values(dailyTotals),
-                                    backgroundColor: 'rgba(75, 192, 192, 0.2)',
-                                    borderColor: 'rgba(75, 192, 192, 1)',
-                                    borderWidth: 1
-                                }]
-                            };
-
-                            var options = {
-                                scales: {
-                                    y: {
-                                        beginAtZero: true
-                                    }
-                                }
-                            };
-
-                            var myChart = new Chart(ctx2, {
-                                type: 'bar',
-                                data: chartData,
-                                options: options
-                            });
-                        })
-                        .catch(error => console.error('Error fetching data:', error));
+                        var myChart = new Chart(ctx2, {
+                            type: 'bar',
+                            data: chartData,
+                            options: options
+                        });
+                    })
+                    .catch(error => console.error('Error fetching data:', error));
             </script>
 
         </div>

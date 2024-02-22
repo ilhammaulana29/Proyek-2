@@ -14,13 +14,14 @@ class registerController extends Controller
 
     public function prosesRegister(Request $request)
     {
-        // Validasi input
-        // $request->validate([
-        //     'nama' => 'required|string',
-        //     'email' => 'required|email|unique:user,email',
-        //     'no_hp' => 'required|string',
-        //     'password' => 'required|string|min:8|confirmed',
-        // ]);
+
+        $request->validate([
+            'nama' => 'required|string',
+            'email' => 'required|email|unique:users,email',
+            'no_hp' => 'required|string',
+            'password' => 'required|string|min:8',
+            'captcha' => 'required|captcha',
+        ]);
     
         $user = new User;
         $user->name = $request->nama;
@@ -34,5 +35,6 @@ class registerController extends Controller
     
         return redirect('/login')->with('success', 'Registrasi berhasil! Silakan login.');
     }
+
     
 }

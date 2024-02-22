@@ -4,7 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\order;
-use App\Models\userdami;
+use App\Models\User;
+
 
 class dashboardController extends Controller
 {
@@ -18,7 +19,7 @@ class dashboardController extends Controller
 
     public function index()
     {
-        $dataUserRegistrasi = userdami::all();
+        $dataUserRegistrasi = User::all();
 
         $userOrder = order::all();
         
@@ -31,7 +32,10 @@ class dashboardController extends Controller
             $userOrder->count(),
         ];
 
-        return view('admin.index', compact('labels', 'data'));
+        // untuk menampilkan last_seen user
+        $user = User::orderBy('last_seen', 'DESC')->get();
+
+        return view('admin.index', compact('labels', 'data', 'user'));
     }
 
 

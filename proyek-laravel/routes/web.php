@@ -1,12 +1,14 @@
 <?php
 
 use App\Http\Controllers\adminController;
+use App\Http\Controllers\captchaServiceController;
 use App\Http\Controllers\checkoutController;
 use App\Http\Controllers\dashboardController;
 use App\Http\Controllers\homeController;
 use App\Http\Controllers\kategoriProdukController;
 use App\Http\Controllers\keranjangController;
 use App\Http\Controllers\loginController;
+use App\Http\Controllers\lupaPasswordController;
 use App\Http\Controllers\orderController;
 use App\Http\Controllers\orderControllerAdmin;
 use App\Http\Controllers\produkController;
@@ -15,6 +17,7 @@ use App\Http\Controllers\registerController;
 use App\Http\Controllers\tokoController;
 use App\Http\Controllers\userController;
 use App\Http\Controllers\wishlistController;
+use App\Models\lupaPassword;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -103,6 +106,8 @@ Route::post('/register', [RegisterController::class, 'prosesRegister'])->name('p
 Route::get('/login', [loginController::class, 'index']);
 Route::post('/login', [loginController::class, 'prosesLogin'])->name('proses.login')->middleware('redirectAdminUser');
 Route::get('/logout', [loginController::class, 'logout'])->name('proses.logout');
+// reload captcha
+Route::get('/reload-captcha', [captchaServiceController::class, 'reloadCaptcha']);
 
 
 Route::get('/produk-admin',[produkController::class,'index']);
@@ -117,11 +122,14 @@ Route::get('/produk-admin/destroy/{id}',[produkController::class,'destroy']);
 Route::middleware(['auth'])->group(function () {
     Route::get('/seting-profil-admin',[adminController::class,'index']);
     Route::post('/seting-profil-admin/update',[adminController::class,'update']);
-    Route::get('seting-toko-admin',[tokoController::class,'index']);
-    Route::post('seting-toko-admin/update',[tokoController::class,'update']);
+    Route::get('/seting-toko-admin',[tokoController::class,'index']);
+    Route::post('/seting-toko-admin/update',[tokoController::class,'update']);
 });
 
 
 // Route::post('/toko/update/{id}', [tokoController::class,'update']);
 
-
+Route::get('/lupa-password', [lupaPasswordController::class, 'index'])->name('lupa.password.index');
+Route::post('/lupa-password', [lupaPasswordController::class, 'lupaPasswordPost'])->name('lupa.password.post');
+Route::get('/reset-password/{token}', [lupaPasswordController::class, 'resetPassword'])->name('reset.password');
+Route::post('/reset-password', [lupaPasswordController::class, 'resetPasswordPost'])->name('reset.password.post');

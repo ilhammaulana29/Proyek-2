@@ -34,7 +34,7 @@
                     </div>
 
                     <div>
-                        <a href="#" class="link">Lupa Kata Sandi ?</a>
+                        <a href="{{ route('lupa.password.index') }}" class="link">Lupa Kata Sandi?</a>
                     </div>
                 </div>
 
